@@ -1,0 +1,16 @@
+<side-drawer-page>
+  <GridLayout rows="auto, *">
+
+  <GridLayout row="0" columns="*, auto" class="add-bar">
+    <TextField #groceryTextField hint="Enter a grocery item" col="0"></TextField>
+    <Image src="res://icon.png" col="1"></Image>
+  </GridLayout>
+
+  <ListView [items]="listArr" row="1" class="small-spacing">
+    <template let-item="item">
+      <Label [text]="item" class="medium-spacing"></Label>
+    </template>
+  </ListView>
+
+</GridLayout>
+</side-drawer-page>

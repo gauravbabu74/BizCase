@@ -1,1 +1,54 @@
-/* global styles */
+@import 'nativescript-theme-core/css/core.light.css';
+
+.page-text {
+   vertical-align: center;
+   text-align: center;
+}
+/* global styles */ 
+.loginstack{
+  margin-left: 15;
+  margin-right: 15;
+  padding-bottom: 15;
+  margin-top: 25%;
+  background-color: white;
+}
+.registerstack{
+  margin-left: 15;
+  margin-right: 15;
+  padding-bottom: 15;
+  margin-top: 10%;
+  background-color: white;
+}
+Image {
+  margin-top: 5;
+  margin-bottom: 20;
+}
+Button, TextField {
+  margin-left: 16;
+  margin-right: 16;
+  margin-bottom: 10;
+}
+Label {
+  margin-left: 5;
+  margin-right: 5;
+  margin-bottom: 10;
+}
+ DropDown {
+  margin-left: 16;
+  margin-right: 16;  
+  font-size: 18;
+}
+.submit-button {
+  background-color: #CB1D00;
+  color: white;
+  margin-top: 20;
+}
+.btn{
+    background: none;
+}
+
+#outLine{
+  margin-left: 20;
+  margin-right: 20;
+  margin-bottom: 10;
+}

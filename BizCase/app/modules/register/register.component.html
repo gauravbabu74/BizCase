@@ -1,0 +1,23 @@
+<ActionBar title="Register">
+    <!-- actionbar items  -->
+</ActionBar>
+<StackLayout class="registerstack">
+    <!-- page content -->
+    <Label class="h1 text-center" style="margin:0 0 20 0;text-align:center;font-size:24;color:#000000;" text="Sign Up"></Label>
+    <DropDown [items]="itemsAmount" (selectedIndexChanged)="onchange($event)" (opened)="onopen()" hint="Amount You Need"
+        style="font-family: 'Roboto', Roboto;"> </DropDown>
+    <GridLayout height="1" style="background-color:#4c5356;margin-bottom:10; margin-left: 20;margin-right: 20;"></GridLayout>
+    <DropDown [items]="itemsTimes" (selectedIndexChanged)="onchange($event)" (opened)="onopen()" hint="Time in Business"
+        style="font-family: 'Roboto', Roboto;"> </DropDown>
+    <GridLayout #outLine height="1" style="background-color:#4c5356;margin-bottom:10; margin-left: 20;margin-right: 20;"></GridLayout>
+    <DropDown [items]="itemsRev" (selectedIndexChanged)="onchange($event)" (opened)="onopen()" hint="Your Annual Revenue"
+        style="font-family: 'Roboto', Roboto;"> </DropDown>
+    <GridLayout #outLine height="1" style="background-color:#4c5356;margin-bottom:10; margin-left: 20;margin-right: 20;"></GridLayout>
+    <DropDown [items]="itemsCS" (selectedIndexChanged)="onchange($event)" (opened)="onopen()" hint="Your Credit Score"
+        style="font-family: 'Roboto', Roboto;"> </DropDown>
+    <GridLayout #outLine height="1" style="background-color:#4c5356;margin-bottom:10;margin-left: 20;margin-right: 20;"></GridLayout>
+    <TextField hint="First Name" class="input input-border" id="firstTextFieldId" text=""></TextField>
+    <TextField hint="Last Name" class="input input-border" id="lastTextFieldId" text=""></TextField>
+    <TextField hint="Email" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
+    <TextField hint="Mobile Number"  id="mobilenum" keyboardType="number"></TextField>
+    <Button text="Register" (tap)="registerSubmit()" backgroundColor="#a6ce39" color="#ffffff"></Button> </StackLayout>

@@ -5,8 +5,8 @@ var AppComponent = (function () {
     }
     AppComponent = __decorate([
         core_1.Component({
-            selector: "ns-main",
-            template: "<page-router-outlet></page-router-outlet>"
+            selector: "my-app",
+            template: '<page-router-outlet></page-router-outlet>'
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

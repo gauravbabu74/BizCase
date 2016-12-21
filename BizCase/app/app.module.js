@@ -16,6 +16,7 @@ var AppModule = (function () {
                 router_1.NativeScriptRouterModule.forRoot(app_routes_1.appRoutes),
                 home_module_1.HomeModule
             ],
+            declarations: [app_component_1.AppComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

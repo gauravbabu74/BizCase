@@ -1,9 +1,10 @@
-import { Component } from "@angular/core";
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
-  selector: "ns-home",
-  templateUrl: "home.component.html",
-  styleUrls: ["home.component.css"]
+  selector: 'home',
+  templateUrl: 'modules/home/home.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent {}
+export class HomeComponent {
+  text: string = 'Home Page';
+}

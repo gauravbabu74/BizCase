@@ -1,14 +1,14 @@
 "use strict";
-var core_1 = require("@angular/core");
+var core_1 = require('@angular/core');
 var HomeComponent = (function () {
     function HomeComponent() {
+        this.text = 'Home Page';
     }
     HomeComponent = __decorate([
         core_1.Component({
-            moduleId: module.id,
-            selector: "ns-home",
-            templateUrl: "home.component.html",
-            styleUrls: ["home.component.css"]
+            selector: 'home',
+            templateUrl: 'modules/home/home.component.html',
+            changeDetection: core_1.ChangeDetectionStrategy.OnPush
         }), 
         __metadata('design:paramtypes', [])
     ], HomeComponent);

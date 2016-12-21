@@ -1,0 +1,35 @@
+<ActionBar title="Login">
+    <!-- actionbar items  -->
+</ActionBar>
+<StackLayout class="loginstack">
+    <!-- page content -->
+    <Image src="res://logo" style="width:70%;" horizontalAlignment="center"></Image>
+    <TextField #uname hint="Email Address" [(ngModel)]="username" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
+    <TextField #password hint="Password" [(ngModel)]="pass" secure="true"></TextField>
+    <Button text="LOGIN" (tap)="validateUser()" backgroundColor="#a6ce39" color="#ffffff"></Button>
+    <GridLayout row="0" columns="*, auto" style="margin-bottom:10; margin-left: 16;margin-right: 16;">
+        <Label class="forgot-password-label" text="Forgot password?" (tap)="forgotPass()" col="0"></Label>
+        <Label class="forgot-password-label" text="Create New ID" (tap)="registerPage()" col="1"></Label> </GridLayout>
+</StackLayout>
+<DockLayout stretchLastChild="true">
+    <ActivityIndicator row="1" dock="bottom" class="activity-indicator" width="30" height="30" #activityIndicator [busy]="isAuthenticating"></ActivityIndicator>
+</DockLayout>
+<StackLayout>
+        <!--TIL with all possible attrs via bindings-->
+        <TIL:TextInputLayout class="demo-text-input-layout"
+            hint="abc"
+            error=""
+            errorEnabled="true"
+            hintAnimationEnabled="true"
+            hintTextAppearance="StyledTIL"
+            counterEnabled="false">
+
+            <!--ONE child element can be added, MUST be either TextField or TextView-->
+            <TextField text="abc" style="font-family: Arvo-Bold;" />
+        </TIL:TextInputLayout>
+
+        <!--TIL with just a static hint-->
+        <TIL:TextInputLayout hint="Hint Text">
+            <TextField text="" />
+        </TIL:TextInputLayout>
+    </StackLayout>
