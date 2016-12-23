@@ -1,4 +1,24 @@
 @import 'nativescript-theme-core/css/core.light.css';
+@import url("~/platform.css");
+
+Page {
+  font-size: 15;
+}
+.list-page {
+  background-image: url("res://bg_inner");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+ActionBar {
+  background-color: #a6ce39;
+  color: white;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
 
 .page-text {
    vertical-align: center;
@@ -9,14 +29,14 @@
   margin-left: 15;
   margin-right: 15;
   padding-bottom: 15;
-  margin-top: 25%;
+  margin-top: 170;
   background-color: white;
 }
 .registerstack{
   margin-left: 15;
   margin-right: 15;
   padding-bottom: 15;
-  margin-top: 10%;
+  margin-top: 40;
   background-color: white;
 }
 Image {
@@ -27,6 +47,9 @@ Button, TextField {
   margin-left: 16;
   margin-right: 16;
   margin-bottom: 10;
+  padding: 10;
+  color: black;
+  placeholder-color: #ACA6A7;
 }
 Label {
   margin-left: 5;
@@ -36,7 +59,7 @@ Label {
  DropDown {
   margin-left: 16;
   margin-right: 16;  
-  font-size: 18;
+  font-size: 15;
 }
 .submit-button {
   background-color: #CB1D00;
