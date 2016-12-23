@@ -1,10 +1,13 @@
 <RadSideDrawer>
   <StackLayout tkDrawerContent class="sidedrawer-left">
     <StackLayout class="sidedrawer-header">
-    <GridLayout class="sidedrawer-header" height="100" >
-        <Image src="res://icon"  horizontalAlignment="right" stretch ="none" col="0" class="sidedrawer-header-image"></Image>
-        <Label class="sidedrawer-header-brand" text="Biz2Credit"></Label>
-    </GridLayout>
+    <GridLayout class="sidedrawer-header" height="70">
+                <Button class="sidedrawer-list-item-text borderless-btn" col="0" style="text-align:left;padding-left:60;vertical-align:center;" text="Home"
+                    (tap)="navigateToDashboard()">
+          </Button>
+                <Image src="res://icon" horizontalAlignment="right" width="30" height="30" style="vertical-align:center;margin-right:10"
+                    col="1" class="sidedrawer-header-image"></Image>
+            </GridLayout>
     </StackLayout>
     
     <ScrollView>

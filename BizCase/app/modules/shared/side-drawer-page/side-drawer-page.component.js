@@ -102,6 +102,12 @@ var SideDrawerPageComponent = (function () {
     SideDrawerPageComponent.prototype.toggleDrawer = function () {
         this.drawer.toggleDrawerState();
     };
+    SideDrawerPageComponent.prototype.navigateToDashboard = function () {
+        this.routerExtensions.navigate(["home"], {
+            clearHistory: true,
+            animated: false
+        });
+    };
     __decorate([
         core_1.ViewChild(angular_1.RadSideDrawerComponent), 
         __metadata('design:type', angular_1.RadSideDrawerComponent)

@@ -20,7 +20,7 @@ import {
   templateUrl: 'modules/shared/side-drawer-page/side-drawer-page.component.html',
   styleUrls: ['modules/shared/side-drawer-page/side-drawer-page.component.css']
 })
-export class SideDrawerPageComponent implements AfterViewInit, OnDestroy , OnInit {
+export class SideDrawerPageComponent implements AfterViewInit, OnDestroy {
   @ViewChild(RadSideDrawerComponent) drawerComponent: RadSideDrawerComponent;
 
   /**
@@ -140,6 +140,13 @@ export class SideDrawerPageComponent implements AfterViewInit, OnDestroy , OnIni
   private toggleDrawer() {
     this.drawer.toggleDrawerState();
   }
-
+  public navigateToDashboard()
+  {
+      this.routerExtensions.navigate(["home"],
+            {
+              clearHistory: true,
+              animated: false
+            });
+  }
 
 }
