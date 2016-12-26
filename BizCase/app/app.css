@@ -1,17 +1,11 @@
 @import 'nativescript-theme-core/css/core.light.css';
+@import url("~/platform.css");
 
 .page-text {
    vertical-align: center;
    text-align: center;
 }
 /* global styles */ 
-.loginstack{
-  margin-left: 15;
-  margin-right: 15;
-  padding-bottom: 15;
-  margin-top: 25%;
-  background-color: white;
-}
 .registerstack{
   margin-left: 15;
   margin-right: 15;
@@ -23,7 +17,7 @@ Image {
   margin-top: 5;
   margin-bottom: 20;
 }
-Button, TextField {
+Button ,TextField {
   margin-left: 16;
   margin-right: 16;
   margin-bottom: 10;
@@ -56,3 +50,8 @@ Label {
     color:#64980D;
      font-size: 16;
 }
+.bold-font{
+    color:#000000;
+     font-size: 16;
+}
+

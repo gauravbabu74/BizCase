@@ -21,7 +21,14 @@ var LoginComponent = (function () {
         this.pass = "";
         this.deviceToken = "APA91bFuXV0ZSvWmJJjLiNDNDrPJkAaeZ39cgGHf4jZiv_MMndzkn3m5ZXB1mkyNz5lJtQPCvUQ0VjnMpVVzjuVAA8PRotP-ZnWO-_fzvVNUvk2LNw2e5vbCxxO37tG4SLsHO5HhihAS-wPpy3mrJFBnJ8l6UBVFWlmXLjtXMjh8bY3urp-IIT0";
         this.deviceType = "simulator";
+        this.imageType = "none";
     }
+    LoginComponent.prototype.if = function (isAndroid) {
+        this.imageType = "none";
+    };
+    LoginComponent.prototype.if = function (isIOS) {
+        this.imageType = "none";
+    };
     LoginComponent.prototype.ngOnInit = function () {
         this.page.actionBarHidden = true;
         this.isLogin = appSettings.getBoolean("isLogin");

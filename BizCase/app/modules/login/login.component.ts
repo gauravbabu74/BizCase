@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from "@angular/router";
 import { RouterExtensions } from 'nativescript-angular/router';
+import { isAndroid, isIOS, device, screen } from "platform";
 import { connectionType, getConnectionType } from "connectivity";
 import { request } from "http";
 import { Page } from "ui/page";
@@ -27,6 +28,15 @@ export class LoginComponent implements OnInit {
     public pass: string = "";
     public deviceToken: string = "APA91bFuXV0ZSvWmJJjLiNDNDrPJkAaeZ39cgGHf4jZiv_MMndzkn3m5ZXB1mkyNz5lJtQPCvUQ0VjnMpVVzjuVAA8PRotP-ZnWO-_fzvVNUvk2LNw2e5vbCxxO37tG4SLsHO5HhihAS-wPpy3mrJFBnJ8l6UBVFWlmXLjtXMjh8bY3urp-IIT0";
     public deviceType: string = "simulator";
+    public imageType: string = "none";
+    if(isAndroid)
+    {
+        this.imageType ="none";
+    }
+    if(isIOS)
+    {
+        this.imageType ="none";
+    }
 
     @ViewChild("password") password: ElementRef;
     @ViewChild("uname") uname: ElementRef;

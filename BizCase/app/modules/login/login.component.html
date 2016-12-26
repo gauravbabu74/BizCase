@@ -1,11 +1,17 @@
-<StackLayout orientation="vertical" verticalAlignment="center">
-    <StackLayout style="padding-left:15;padding-right:15;">
-        <Image src="res://black_logo" stretch="none" horizontalAlignment="center"></Image>
+<StackLayout class="loginstack" orientation="vertical" verticalAlignment="center">
+    <StackLayout style="padding-left:20;padding-right:20;">
+        <Image src="res://black_logo" stretch="none" horizontalAlignment="center" ></Image>
         <TextField #uname hint="Email Address" [(ngModel)]="username" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
         <TextField #password hint="Password" [(ngModel)]="pass" secure="true"></TextField>
-        <Button text="LOGIN" (tap)="validateUser()" backgroundColor="#64980D" color="#ffffff"></Button>
-        <Label class="forgot-password-label" text="Forgot password?" (tap)="forgotPass()" horizontalAlignment="center"></Label> </StackLayout>
-    <DockLayout stretchLastChild="true">
-        <ActivityIndicator dock="bottom" class="activity-indicator" width="30" height="30" #activityIndicator [busy]="isAuthenticating"></ActivityIndicator>
-    </DockLayout>
+        <Button text="Login" class="btn-rounded-lg" (tap)="validateUser()" backgroundColor="#64980D" color="#ffffff"></Button>
+        <Label class="forgot-password-label" text="Forgot password?" (tap)="forgotPass()" horizontalAlignment="center"></Label>
+        <DockLayout stretchLastChild="true">
+            <ActivityIndicator dock="bottom" class="activity-indicator" width="30" height="30" #activityIndicator [busy]="isAuthenticating"></ActivityIndicator>
+        </DockLayout>
+    </StackLayout>
+    <StackLayout orientation="vertical" horizontalAlignment="center" verticalAlignment="bottom">
+        <GridLayout row="0" columns="*, auto" style="padding-left:15;padding-right:15;height:50;">
+            <Label class="bold-font" text="Privacy Policy" col="0"></Label>
+            <Label class="bold-font" text="Terms & Conditions" col="1"></Label> </GridLayout>
+    </StackLayout>
 </StackLayout>
