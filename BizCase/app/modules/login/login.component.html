@@ -1,6 +1,9 @@
+<ActionBar title="">
+    <!-- actionbar items  -->
+</ActionBar>
 <StackLayout class="loginstack" orientation="vertical" verticalAlignment="center">
-    <StackLayout style="padding-left:20;padding-right:20;">
-        <Image src="res://black_logo" stretch="none" horizontalAlignment="center" ></Image>
+    <StackLayout style="padding-left:30;padding-right:30;">
+        <Image src="res://black_logo" [stretch]="imageType" horizontalAlignment="center" ></Image>
         <TextField #uname hint="Email Address" [(ngModel)]="username" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
         <TextField #password hint="Password" [(ngModel)]="pass" secure="true"></TextField>
         <Button text="Login" class="btn-rounded-lg" (tap)="validateUser()" backgroundColor="#64980D" color="#ffffff"></Button>

@@ -29,14 +29,7 @@ export class LoginComponent implements OnInit {
     public deviceToken: string = "APA91bFuXV0ZSvWmJJjLiNDNDrPJkAaeZ39cgGHf4jZiv_MMndzkn3m5ZXB1mkyNz5lJtQPCvUQ0VjnMpVVzjuVAA8PRotP-ZnWO-_fzvVNUvk2LNw2e5vbCxxO37tG4SLsHO5HhihAS-wPpy3mrJFBnJ8l6UBVFWlmXLjtXMjh8bY3urp-IIT0";
     public deviceType: string = "simulator";
     public imageType: string = "none";
-    if(isAndroid)
-    {
-        this.imageType ="none";
-    }
-    if(isIOS)
-    {
-        this.imageType ="none";
-    }
+    
 
     @ViewChild("password") password: ElementRef;
     @ViewChild("uname") uname: ElementRef;
@@ -48,10 +41,18 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.page.actionBarHidden = true;
+//this.page.actionBarHidden = true;
         this.isLogin = appSettings.getBoolean("isLogin");
         if (this.isLogin === true) {
             this.router.navigate(["home"]);
+        }
+        if (isAndroid)
+        {
+            this.imageType ="none";
+        }
+        if (isIOS)
+        {
+            this.imageType ="aspectFit";
         }
     }
 

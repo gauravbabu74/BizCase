@@ -10,10 +10,8 @@ Page {
     color: black;
 }
 Button, TextField {
-    margin-left: 16;
-    margin-right: 16;
     margin-bottom: 10;
-    padding: 10;
+    padding: 15;
     font-size: 13;
     color: black;
     placeholder-color: #ACA6A7;

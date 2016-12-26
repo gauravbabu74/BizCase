@@ -2,6 +2,7 @@
 var core_1 = require('@angular/core');
 var router_1 = require("@angular/router");
 var router_2 = require('nativescript-angular/router');
+var platform_1 = require("platform");
 var connectivity_1 = require("connectivity");
 var http_1 = require("http");
 var page_1 = require("ui/page");
@@ -23,17 +24,17 @@ var LoginComponent = (function () {
         this.deviceType = "simulator";
         this.imageType = "none";
     }
-    LoginComponent.prototype.if = function (isAndroid) {
-        this.imageType = "none";
-    };
-    LoginComponent.prototype.if = function (isIOS) {
-        this.imageType = "none";
-    };
     LoginComponent.prototype.ngOnInit = function () {
-        this.page.actionBarHidden = true;
+        //this.page.actionBarHidden = true;
         this.isLogin = appSettings.getBoolean("isLogin");
         if (this.isLogin === true) {
             this.router.navigate(["home"]);
+        }
+        if (platform_1.isAndroid) {
+            this.imageType = "none";
+        }
+        if (platform_1.isIOS) {
+            this.imageType = "aspectFit";
         }
     };
     LoginComponent.prototype.validateUser = function () {
