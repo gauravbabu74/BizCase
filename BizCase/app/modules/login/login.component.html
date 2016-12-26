@@ -1,13 +1,11 @@
-<StackLayout class="loginstack">
-    <!-- page content -->
-    <Image src="res://logo" style="width:70%;" horizontalAlignment="center"></Image>
-    <TextField #uname hint="Email Address" [(ngModel)]="username" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
-    <TextField #password hint="Password" [(ngModel)]="pass" secure="true"></TextField>
-    <Button text="LOGIN" (tap)="validateUser()" backgroundColor="#a6ce39" color="#ffffff"></Button>
-    <GridLayout row="0" columns="*, auto" style="margin-left: 16;margin-right: 16;">
-        <Label class="forgot-password-label" text="Forgot password?" (tap)="forgotPass()" horizontalAlignment="left" verticalAlignment="top"
-            col="0"></Label>
-        <Label class="forgot-password-label" text="Create New ID" (tap)="registerPage()" horizontalAlignment="right" verticalAlignment="top"
-            col="1"></Label> </GridLayout>
+<StackLayout orientation="vertical" verticalAlignment="center">
+    <StackLayout style="padding-left:15;padding-right:15;">
+        <Image src="res://black_logo" stretch="none" horizontalAlignment="center"></Image>
+        <TextField #uname hint="Email Address" [(ngModel)]="username" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
+        <TextField #password hint="Password" [(ngModel)]="pass" secure="true"></TextField>
+        <Button text="LOGIN" (tap)="validateUser()" backgroundColor="#64980D" color="#ffffff"></Button>
+        <Label class="forgot-password-label" text="Forgot password?" (tap)="forgotPass()" horizontalAlignment="center"></Label> </StackLayout>
+    <DockLayout stretchLastChild="true">
+        <ActivityIndicator dock="bottom" class="activity-indicator" width="30" height="30" #activityIndicator [busy]="isAuthenticating"></ActivityIndicator>
+    </DockLayout>
 </StackLayout>
-<ActivityIndicator width="30" height="30" [busy]="isAuthenticating" class="activity-indicator"> </ActivityIndicator>
