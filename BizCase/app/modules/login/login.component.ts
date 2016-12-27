@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
         }
         if (isAndroid)
         {
-            this.imageType ="none";
+            this.imageType ="aspectFit";
         }
         if (isIOS)
         {

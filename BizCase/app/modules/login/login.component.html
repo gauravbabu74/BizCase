@@ -3,7 +3,7 @@
 </ActionBar>
 <StackLayout class="loginstack" orientation="vertical" verticalAlignment="center">
     <StackLayout style="padding-left:30;padding-right:30;">
-        <Image src="res://black_logo" [stretch]="imageType" horizontalAlignment="center" ></Image>
+        <Image src="res://black_logo" [stretch]="imageType" horizontalAlignment="center" style="margin-left:10;margin-right:10;"></Image>
         <TextField #uname hint="Email Address" [(ngModel)]="username" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
         <TextField #password hint="Password" [(ngModel)]="pass" secure="true"></TextField>
         <Button text="Login" class="btn-rounded-lg" (tap)="validateUser()" backgroundColor="#64980D" color="#ffffff"></Button>

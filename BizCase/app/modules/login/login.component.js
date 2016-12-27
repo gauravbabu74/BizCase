@@ -31,7 +31,7 @@ var LoginComponent = (function () {
             this.router.navigate(["home"]);
         }
         if (platform_1.isAndroid) {
-            this.imageType = "none";
+            this.imageType = "aspectFit";
         }
         if (platform_1.isIOS) {
             this.imageType = "aspectFit";
@@ -239,11 +239,11 @@ var LoginComponent = (function () {
     };
     __decorate([
         core_1.ViewChild("password"), 
-        __metadata('design:type', (typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object)
+        __metadata('design:type', core_1.ElementRef)
     ], LoginComponent.prototype, "password", void 0);
     __decorate([
         core_1.ViewChild("uname"), 
-        __metadata('design:type', (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object)
+        __metadata('design:type', core_1.ElementRef)
     ], LoginComponent.prototype, "uname", void 0);
     LoginComponent = __decorate([
         core_1.Component({
@@ -252,10 +252,9 @@ var LoginComponent = (function () {
             templateUrl: "login.component.html",
             styleUrls: ["login.component.css"]
         }), 
-        __metadata('design:paramtypes', [(typeof (_c = typeof router_1.Router !== 'undefined' && router_1.Router) === 'function' && _c) || Object, (typeof (_d = typeof page_1.Page !== 'undefined' && page_1.Page) === 'function' && _d) || Object, (typeof (_e = typeof router_2.RouterExtensions !== 'undefined' && router_2.RouterExtensions) === 'function' && _e) || Object])
+        __metadata('design:paramtypes', [router_1.Router, page_1.Page, router_2.RouterExtensions])
     ], LoginComponent);
     return LoginComponent;
-    var _a, _b, _c, _d, _e;
 }());
 exports.LoginComponent = LoginComponent;
 //# sourceMappingURL=login.component.js.map
