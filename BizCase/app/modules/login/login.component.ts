@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, NgZone, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { Router } from "@angular/router";
 import { RouterExtensions } from 'nativescript-angular/router';
 import { isAndroid, isIOS, device, screen } from "platform";
@@ -11,6 +11,7 @@ import * as XmlObjects from "nativescript-xmlobjects";
 import * as appSettings from "application-settings";
 import { TextField } from "ui/text-field";
 import * as Toast from 'nativescript-toast';
+import * as connectivity from "connectivity";
 import "rxjs/Rx";
 
 @Component({
@@ -20,7 +21,7 @@ import "rxjs/Rx";
     styleUrls: ["login.component.css"]
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
     public username: string = "";
     public isLogin: boolean = false;
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
     public deviceToken: string = "APA91bFuXV0ZSvWmJJjLiNDNDrPJkAaeZ39cgGHf4jZiv_MMndzkn3m5ZXB1mkyNz5lJtQPCvUQ0VjnMpVVzjuVAA8PRotP-ZnWO-_fzvVNUvk2LNw2e5vbCxxO37tG4SLsHO5HhihAS-wPpy3mrJFBnJ8l6UBVFWlmXLjtXMjh8bY3urp-IIT0";
     public deviceType: string = "simulator";
     public imageType: string = "none";
+    public connectionType: string;
     
 
     @ViewChild("password") password: ElementRef;
@@ -36,7 +38,22 @@ export class LoginComponent implements OnInit {
 
     public constructor(private router: Router,
         private page: Page ,
-        private routerExtensions: RouterExtensions) {
+        private routerExtensions: RouterExtensions,
+        private zone: NgZone) {
+             let connectionType = connectivity.getConnectionType();
+        switch (connectionType) {
+            case connectivity.connectionType.none:
+                this.connectionType = "None";
+                break;
+            case connectivity.connectionType.wifi:
+                this.connectionType = "Wi-Fi";
+                break;
+            case connectivity.connectionType.mobile:
+                this.connectionType = "Mobile";
+                break;
+            default:
+                break;
+        }
 
     }
 
@@ -54,6 +71,31 @@ export class LoginComponent implements OnInit {
         {
             this.imageType ="aspectFit";
         }
+        connectivity.startMonitoring((newConnectionType: number) => {
+            this.zone.run(() => {
+                switch (newConnectionType) {
+                    case connectivity.connectionType.none:
+                        this.connectionType = "None";
+                        console.log("Connection type changed to none.");
+                        break;
+                    case connectivity.connectionType.wifi:
+                        this.connectionType = "Wi-Fi";
+                        console.log("Connection type changed to WiFi.");
+                        break;
+                    case connectivity.connectionType.mobile:
+                        this.connectionType = "Mobile";
+                        console.log("Connection type changed to mobile.");
+                        break;
+                    default:
+                        break;
+                }
+            });
+        });
+    }
+    ngOnDestroy() {
+        // >> connectivity-stop-code
+        connectivity.stopMonitoring();
+        // << connectivity-stop-code
     }
 
     public validateUser() {
@@ -116,6 +158,7 @@ export class LoginComponent implements OnInit {
             if (resData['results']['faultcode'] === 1 || resData['results']['faultcode'] === '1') {
                 appSettings.setBoolean("isLogin", true);
                 //this.router.navigate(["home"]);
+                Toast.makeText("success.","long").show();
                 this.routerExtensions.navigate(["/home"], { clearHistory: true });
             }
             else {

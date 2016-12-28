@@ -4,8 +4,6 @@ import { platformNativeScriptDynamic } from "nativescript-angular/platform";
 import { AppModule } from "./modules/app.module";
 import { registerElement } from "nativescript-angular/element-registry";
 registerElement("DropDown", () => require("nativescript-drop-down/drop-down").DropDown);
-
-
 /*application.on(application.launchEvent, function (args: application.ApplicationEventData) {
     if (args.android) {
         // For Android applications, args.android is an android.content.Intent class.

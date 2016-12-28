@@ -10,12 +10,14 @@ var dialogs = require("ui/dialogs");
 var XmlObjects = require("nativescript-xmlobjects");
 var appSettings = require("application-settings");
 var Toast = require('nativescript-toast');
+var connectivity = require("connectivity");
 require("rxjs/Rx");
 var LoginComponent = (function () {
-    function LoginComponent(router, page, routerExtensions) {
+    function LoginComponent(router, page, routerExtensions, zone) {
         this.router = router;
         this.page = page;
         this.routerExtensions = routerExtensions;
+        this.zone = zone;
         this.username = "";
         this.isLogin = false;
         this.isAuthenticating = false;
@@ -23,8 +25,23 @@ var LoginComponent = (function () {
         this.deviceToken = "APA91bFuXV0ZSvWmJJjLiNDNDrPJkAaeZ39cgGHf4jZiv_MMndzkn3m5ZXB1mkyNz5lJtQPCvUQ0VjnMpVVzjuVAA8PRotP-ZnWO-_fzvVNUvk2LNw2e5vbCxxO37tG4SLsHO5HhihAS-wPpy3mrJFBnJ8l6UBVFWlmXLjtXMjh8bY3urp-IIT0";
         this.deviceType = "simulator";
         this.imageType = "none";
+        var connectionType = connectivity.getConnectionType();
+        switch (connectionType) {
+            case connectivity.connectionType.none:
+                this.connectionType = "None";
+                break;
+            case connectivity.connectionType.wifi:
+                this.connectionType = "Wi-Fi";
+                break;
+            case connectivity.connectionType.mobile:
+                this.connectionType = "Mobile";
+                break;
+            default:
+                break;
+        }
     }
     LoginComponent.prototype.ngOnInit = function () {
+        var _this = this;
         //this.page.actionBarHidden = true;
         this.isLogin = appSettings.getBoolean("isLogin");
         if (this.isLogin === true) {
@@ -36,6 +53,31 @@ var LoginComponent = (function () {
         if (platform_1.isIOS) {
             this.imageType = "aspectFit";
         }
+        connectivity.startMonitoring(function (newConnectionType) {
+            _this.zone.run(function () {
+                switch (newConnectionType) {
+                    case connectivity.connectionType.none:
+                        _this.connectionType = "None";
+                        console.log("Connection type changed to none.");
+                        break;
+                    case connectivity.connectionType.wifi:
+                        _this.connectionType = "Wi-Fi";
+                        console.log("Connection type changed to WiFi.");
+                        break;
+                    case connectivity.connectionType.mobile:
+                        _this.connectionType = "Mobile";
+                        console.log("Connection type changed to mobile.");
+                        break;
+                    default:
+                        break;
+                }
+            });
+        });
+    };
+    LoginComponent.prototype.ngOnDestroy = function () {
+        // >> connectivity-stop-code
+        connectivity.stopMonitoring();
+        // << connectivity-stop-code
     };
     LoginComponent.prototype.validateUser = function () {
         var _this = this;
@@ -103,6 +145,7 @@ var LoginComponent = (function () {
             if (resData['results']['faultcode'] === 1 || resData['results']['faultcode'] === '1') {
                 appSettings.setBoolean("isLogin", true);
                 //this.router.navigate(["home"]);
+                Toast.makeText("success.", "long").show();
                 _this.routerExtensions.navigate(["/home"], { clearHistory: true });
             }
             else {
@@ -252,7 +295,7 @@ var LoginComponent = (function () {
             templateUrl: "login.component.html",
             styleUrls: ["login.component.css"]
         }), 
-        __metadata('design:paramtypes', [router_1.Router, page_1.Page, router_2.RouterExtensions])
+        __metadata('design:paramtypes', [router_1.Router, page_1.Page, router_2.RouterExtensions, core_1.NgZone])
     ], LoginComponent);
     return LoginComponent;
 }());
