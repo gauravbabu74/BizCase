@@ -59,14 +59,17 @@ var LoginComponent = (function () {
                     case connectivity.connectionType.none:
                         _this.connectionType = "None";
                         console.log("Connection type changed to none.");
+                        Toast.makeText("Connection type changed to none.", "long").show();
                         break;
                     case connectivity.connectionType.wifi:
                         _this.connectionType = "Wi-Fi";
                         console.log("Connection type changed to WiFi.");
+                        Toast.makeText("Connection type changed to WiFi.", "long").show();
                         break;
                     case connectivity.connectionType.mobile:
                         _this.connectionType = "Mobile";
                         console.log("Connection type changed to mobile.");
+                        Toast.makeText("Connection type changed to mobile.", "long").show();
                         break;
                     default:
                         break;
@@ -76,9 +79,8 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.ngOnDestroy = function () {
         // >> connectivity-stop-code
-        connectivity.stopMonitoring();
+        //connectivity.stopMonitoring();
         // << connectivity-stop-code
-        alert('ngOnDestroy');
     };
     LoginComponent.prototype.validateUser = function () {
         var _this = this;

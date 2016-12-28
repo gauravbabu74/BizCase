@@ -12,6 +12,7 @@ import * as appSettings from "application-settings";
 import { TextField } from "ui/text-field";
 import * as Toast from 'nativescript-toast';
 import * as connectivity from "connectivity";
+import * as application from 'application';
 import "rxjs/Rx";
 
 @Component({
@@ -77,26 +78,30 @@ export class LoginComponent implements OnInit, OnDestroy {
                     case connectivity.connectionType.none:
                         this.connectionType = "None";
                         console.log("Connection type changed to none.");
+                        Toast.makeText("Connection type changed to none.","long").show();
                         break;
                     case connectivity.connectionType.wifi:
                         this.connectionType = "Wi-Fi";
                         console.log("Connection type changed to WiFi.");
+                        Toast.makeText("Connection type changed to WiFi.","long").show();
                         break;
                     case connectivity.connectionType.mobile:
                         this.connectionType = "Mobile";
                         console.log("Connection type changed to mobile.");
+                        Toast.makeText("Connection type changed to mobile.","long").show();
                         break;
                     default:
                         break;
                 }
             });
         });
+
+
     }
     ngOnDestroy() {
         // >> connectivity-stop-code
-        connectivity.stopMonitoring();
+        //connectivity.stopMonitoring();
         // << connectivity-stop-code
-        alert('ngOnDestroy');
     }
 
     public validateUser() {
