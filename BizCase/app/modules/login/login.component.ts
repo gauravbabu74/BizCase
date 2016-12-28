@@ -96,6 +96,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         // >> connectivity-stop-code
         connectivity.stopMonitoring();
         // << connectivity-stop-code
+        alert('ngOnDestroy');
     }
 
     public validateUser() {
@@ -159,7 +160,7 @@ export class LoginComponent implements OnInit, OnDestroy {
                 appSettings.setBoolean("isLogin", true);
                 //this.router.navigate(["home"]);
                 Toast.makeText("success.","long").show();
-                this.routerExtensions.navigate(["/home"], { clearHistory: true });
+                this.routerExtensions.navigate(["/home"]);
             }
             else {
                 alert("Result :" + JSON.stringify(resData));

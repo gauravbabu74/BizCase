@@ -6,14 +6,11 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { appRoutes } from "./app.routes";
 import { AppComponent } from "./app.component";
 
-import { HomeModule } from "./modules/home/home.module";
-
 @NgModule({
   imports: [
     NativeScriptModule,
     NativeScriptRouterModule,
-    NativeScriptRouterModule.forRoot(appRoutes),
-    HomeModule
+    NativeScriptRouterModule.forRoot(appRoutes)
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]

@@ -78,6 +78,7 @@ var LoginComponent = (function () {
         // >> connectivity-stop-code
         connectivity.stopMonitoring();
         // << connectivity-stop-code
+        alert('ngOnDestroy');
     };
     LoginComponent.prototype.validateUser = function () {
         var _this = this;
@@ -146,7 +147,7 @@ var LoginComponent = (function () {
                 appSettings.setBoolean("isLogin", true);
                 //this.router.navigate(["home"]);
                 Toast.makeText("success.", "long").show();
-                _this.routerExtensions.navigate(["/home"], { clearHistory: true });
+                _this.routerExtensions.navigate(["/home"]);
             }
             else {
                 alert("Result :" + JSON.stringify(resData));
