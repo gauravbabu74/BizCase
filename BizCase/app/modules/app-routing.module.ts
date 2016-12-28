@@ -12,7 +12,7 @@ import { ContactComponent } from './contact/contact.component';
 @NgModule({
   imports: [
     NativeScriptRouterModule.forRoot([
-      { path: '', component: LoginComponent },
+      { path: '', component: LoginComponent,data: { title: 'Heroes List' } },
       { path: 'logout', component: LogoutComponent },
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },

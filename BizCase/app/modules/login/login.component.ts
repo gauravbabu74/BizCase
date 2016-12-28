@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        //this.page.actionBarHidden = true;
+        this.page.actionBarHidden = true;
         this.isLogin = appSettings.getBoolean("isLogin");
         if (this.isLogin === true) {
             this.router.navigate(["home"]);

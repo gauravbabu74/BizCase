@@ -42,7 +42,7 @@ var LoginComponent = (function () {
     }
     LoginComponent.prototype.ngOnInit = function () {
         var _this = this;
-        //this.page.actionBarHidden = true;
+        this.page.actionBarHidden = true;
         this.isLogin = appSettings.getBoolean("isLogin");
         if (this.isLogin === true) {
             this.router.navigate(["home"]);

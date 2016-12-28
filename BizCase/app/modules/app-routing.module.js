@@ -14,7 +14,7 @@ var AppRoutingModule = (function () {
         core_1.NgModule({
             imports: [
                 router_1.NativeScriptRouterModule.forRoot([
-                    { path: '', component: login_component_1.LoginComponent },
+                    { path: '', component: login_component_1.LoginComponent, data: { title: 'Heroes List' } },
                     { path: 'logout', component: logout_component_1.LogoutComponent },
                     { path: 'about', component: about_component_1.AboutComponent },
                     { path: 'contact', component: contact_component_1.ContactComponent },

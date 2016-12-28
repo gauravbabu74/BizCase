@@ -1,4 +1,6 @@
 "use strict";
+var application = require('application');
+var frame = require('ui/frame');
 var platform_1 = require("nativescript-angular/platform");
 var app_module_1 = require("./modules/app.module");
 var element_registry_1 = require("nativescript-angular/element-registry");
@@ -61,9 +63,9 @@ application.on(application.uncaughtErrorEvent, function (args: application.Appli
         // For iOS applications, args.ios is NativeScriptError.
         alert("NativeScriptError: " + args.ios);
     }
-});
+});*/
 if (application.android) {
-    application.android.on(application.AndroidApplication.activityCreatedEvent, function (args: application.AndroidActivityBundleEventData) {
+    /*application.android.on(application.AndroidApplication.activityCreatedEvent, function (args: application.AndroidActivityBundleEventData) {
         alert("Event: " + args.eventName + ", Activity: " + args.activity + ", Bundle: " + args.bundle);
     });
 
@@ -94,12 +96,14 @@ if (application.android) {
     application.android.on(application.AndroidApplication.activityResultEvent, function (args: application.AndroidActivityResultEventData) {
         alert("Event: " + args.eventName + ", Activity: " + args.activity +
             ", requestCode: " + args.requestCode + ", resultCode: " + args.resultCode + ", Intent: " + args.intent);
-    });
-
-    application.android.on(application.AndroidApplication.activityBackPressedEvent, function (args: application.AndroidActivityBackPressedEventData) {
+    });*/
+    application.android.on(application.AndroidApplication.activityBackPressedEvent, function (args) {
         alert("Event: " + args.eventName + ", Activity: " + args.activity);
-        // Set args.cancel = true to cancel back navigation and do something custom.
+        var currentPage = frame.topmost().currentPage;
+        //alert("Result :" + JSON.stringify(frame.topmost().currentPage));
+        alert(currentPage);
+        args.cancel = true;
     });
-}*/
+}
 platform_1.platformNativeScriptDynamic().bootstrapModule(app_module_1.AppModule);
 //# sourceMappingURL=main.js.map

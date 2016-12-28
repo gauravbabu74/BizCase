@@ -1,4 +1,6 @@
 import * as application from 'application';
+import * as frame from 'ui/frame';
+
 import { platformNativeScriptDynamic } from "nativescript-angular/platform";
 
 import { AppModule } from "./modules/app.module";
@@ -62,9 +64,9 @@ application.on(application.uncaughtErrorEvent, function (args: application.Appli
         // For iOS applications, args.ios is NativeScriptError.
         alert("NativeScriptError: " + args.ios);
     }
-});
+});*/
 if (application.android) {
-    application.android.on(application.AndroidApplication.activityCreatedEvent, function (args: application.AndroidActivityBundleEventData) {
+    /*application.android.on(application.AndroidApplication.activityCreatedEvent, function (args: application.AndroidActivityBundleEventData) {
         alert("Event: " + args.eventName + ", Activity: " + args.activity + ", Bundle: " + args.bundle);
     });
 
@@ -95,13 +97,16 @@ if (application.android) {
     application.android.on(application.AndroidApplication.activityResultEvent, function (args: application.AndroidActivityResultEventData) {
         alert("Event: " + args.eventName + ", Activity: " + args.activity +
             ", requestCode: " + args.requestCode + ", resultCode: " + args.resultCode + ", Intent: " + args.intent);
-    });
+    });*/
 
     application.android.on(application.AndroidApplication.activityBackPressedEvent, function (args: application.AndroidActivityBackPressedEventData) {
         alert("Event: " + args.eventName + ", Activity: " + args.activity);
-        // Set args.cancel = true to cancel back navigation and do something custom.
+        var currentPage = frame.topmost().currentPage;
+        //alert("Result :" + JSON.stringify(frame.topmost().currentPage));
+        alert(currentPage);
+        args.cancel = true;
     });
-}*/
+}
 
 
 
