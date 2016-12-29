@@ -96,7 +96,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         // >> connectivity-stop-code
         connectivity.stopMonitoring();
         // << connectivity-stop-code
-        alert('ngOnDestroy');
+        //alert('ngOnDestroy');
     }
 
     public validateUser() {

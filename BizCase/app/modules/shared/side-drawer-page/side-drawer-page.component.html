@@ -1,7 +1,7 @@
-<RadSideDrawer>
+<RadSideDrawer [transition]="SlideInOnTopTransition">
   <StackLayout tkDrawerContent class="sidedrawer-left">
-    <StackLayout class="sidedrawer-header">
-    <GridLayout class="sidedrawer-header" height="70">
+    <StackLayout class="sidedrawer-header" style="height:70;">
+    <GridLayout>
                 <Button class="sidedrawer-list-item-text borderless-btn" col="0" style="text-align:left;padding-left:60;vertical-align:center;" text="Home"
                     (tap)="navigateToDashboard()">
           </Button>

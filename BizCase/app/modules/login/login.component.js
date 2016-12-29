@@ -78,7 +78,7 @@ var LoginComponent = (function () {
         // >> connectivity-stop-code
         connectivity.stopMonitoring();
         // << connectivity-stop-code
-        alert('ngOnDestroy');
+        //alert('ngOnDestroy');
     };
     LoginComponent.prototype.validateUser = function () {
         var _this = this;
