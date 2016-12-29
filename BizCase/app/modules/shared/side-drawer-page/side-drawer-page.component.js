@@ -110,7 +110,7 @@ var SideDrawerPageComponent = (function () {
     };
     __decorate([
         core_1.ViewChild(angular_1.RadSideDrawerComponent), 
-        __metadata('design:type', angular_1.RadSideDrawerComponent)
+        __metadata('design:type', (typeof (_a = typeof angular_1.RadSideDrawerComponent !== 'undefined' && angular_1.RadSideDrawerComponent) === 'function' && _a) || Object)
     ], SideDrawerPageComponent.prototype, "drawerComponent", void 0);
     SideDrawerPageComponent = __decorate([
         core_1.Component({
@@ -118,9 +118,10 @@ var SideDrawerPageComponent = (function () {
             templateUrl: 'modules/shared/side-drawer-page/side-drawer-page.component.html',
             styleUrls: ['modules/shared/side-drawer-page/side-drawer-page.component.css']
         }), 
-        __metadata('design:paramtypes', [router_2.RouterExtensions, router_1.ActivatedRoute, page_1.Page, core_1.NgZone])
+        __metadata('design:paramtypes', [(typeof (_b = typeof router_2.RouterExtensions !== 'undefined' && router_2.RouterExtensions) === 'function' && _b) || Object, (typeof (_c = typeof router_1.ActivatedRoute !== 'undefined' && router_1.ActivatedRoute) === 'function' && _c) || Object, (typeof (_d = typeof page_1.Page !== 'undefined' && page_1.Page) === 'function' && _d) || Object, (typeof (_e = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _e) || Object])
     ], SideDrawerPageComponent);
     return SideDrawerPageComponent;
+    var _a, _b, _c, _d, _e;
 }());
 exports.SideDrawerPageComponent = SideDrawerPageComponent;
 //# sourceMappingURL=side-drawer-page.component.js.map

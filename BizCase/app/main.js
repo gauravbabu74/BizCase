@@ -99,7 +99,7 @@ if (application.android) {
     });*/
     application.android.on(application.AndroidApplication.activityBackPressedEvent, function (args) {
         alert("Event: " + args.eventName + ", Activity: " + args.activity);
-        var currentPage = frame.topmost().currentPage;
+        var currentPage = frame.topmost();
         //alert("Result :" + JSON.stringify(frame.topmost().currentPage));
         alert(currentPage);
         args.cancel = true;

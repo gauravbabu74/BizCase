@@ -23,10 +23,10 @@ import "rxjs/Rx";
 
 export class LoginComponent implements OnInit, OnDestroy {
 
-    public username: string = "";
+    public username: string = "gaurav.babu@sakshay.in";
     public isLogin: boolean = false;
     public isAuthenticating: boolean = false;
-    public pass: string = "";
+    public pass: string = "mobileapp";
     public deviceToken: string = "APA91bFuXV0ZSvWmJJjLiNDNDrPJkAaeZ39cgGHf4jZiv_MMndzkn3m5ZXB1mkyNz5lJtQPCvUQ0VjnMpVVzjuVAA8PRotP-ZnWO-_fzvVNUvk2LNw2e5vbCxxO37tG4SLsHO5HhihAS-wPpy3mrJFBnJ8l6UBVFWlmXLjtXMjh8bY3urp-IIT0";
     public deviceType: string = "simulator";
     public imageType: string = "none";
