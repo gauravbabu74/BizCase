@@ -133,10 +133,6 @@ export class RSideDrawerPageComponent implements AfterViewInit, OnDestroy {
     if (navActionItem.ios) {
       navActionItem.ios.position = 'right';
     }
-    else
-    {
-        //navActionItem.android.position = 'right';
-    }
     navActionItem.on('tap', this.toggleDrawer.bind(this));
     return navActionItem;
   }

@@ -95,8 +95,6 @@ var RSideDrawerPageComponent = (function () {
         if (navActionItem.ios) {
             navActionItem.ios.position = 'right';
         }
-        else {
-        }
         navActionItem.on('tap', this.toggleDrawer.bind(this));
         return navActionItem;
     };
@@ -111,7 +109,7 @@ var RSideDrawerPageComponent = (function () {
     };
     __decorate([
         core_1.ViewChild(angular_1.RadSideDrawerComponent), 
-        __metadata('design:type', angular_1.RadSideDrawerComponent)
+        __metadata('design:type', (typeof (_a = typeof angular_1.RadSideDrawerComponent !== 'undefined' && angular_1.RadSideDrawerComponent) === 'function' && _a) || Object)
     ], RSideDrawerPageComponent.prototype, "drawerComponent", void 0);
     RSideDrawerPageComponent = __decorate([
         core_1.Component({
@@ -122,6 +120,7 @@ var RSideDrawerPageComponent = (function () {
         __metadata('design:paramtypes', [router_2.RouterExtensions, router_1.ActivatedRoute, page_1.Page, core_1.NgZone])
     ], RSideDrawerPageComponent);
     return RSideDrawerPageComponent;
+    var _a;
 }());
 exports.RSideDrawerPageComponent = RSideDrawerPageComponent;
 //# sourceMappingURL=side-rdrawer-page.component.js.map

@@ -10,7 +10,8 @@ var home_component_1 = require('./home/home.component');
 var logout_component_1 = require('./logout/logout.component');
 var about_component_1 = require('./about/about.component');
 var contact_component_1 = require('./contact/contact.component');
-var rshared_1 = require('./rshared');
+var document_component_1 = require('./document/document.component');
+var shared_1 = require('./shared');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -20,7 +21,7 @@ var AppModule = (function () {
                 platform_1.NativeScriptModule,
                 forms_1.NativeScriptFormsModule,
                 app_routing_module_1.AppRoutingModule,
-                rshared_1.RsharedModule
+                shared_1.SharedModule
             ],
             declarations: [
                 app_component_1.AppComponent,
@@ -29,7 +30,8 @@ var AppModule = (function () {
                 home_component_1.HomeComponent,
                 about_component_1.AboutComponent,
                 contact_component_1.ContactComponent,
-                logout_component_1.LogoutComponent
+                logout_component_1.LogoutComponent,
+                document_component_1.DocumentComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

@@ -20,10 +20,9 @@ var HomeComponent = (function () {
             templateUrl: 'modules/home/home.component.html',
             changeDetection: core_1.ChangeDetectionStrategy.OnPush
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof page_1.Page !== 'undefined' && page_1.Page) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [page_1.Page])
     ], HomeComponent);
     return HomeComponent;
-    var _a;
 }());
 exports.HomeComponent = HomeComponent;
 //# sourceMappingURL=home.component.js.map

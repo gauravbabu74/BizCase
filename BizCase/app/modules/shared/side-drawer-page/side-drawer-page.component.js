@@ -5,8 +5,8 @@ var router_2 = require('nativescript-angular/router');
 var page_1 = require('ui/page');
 var platform_1 = require('platform');
 var action_bar_1 = require('ui/action-bar');
-var angular_1 = require('nativescript-telerik-ui-pro/sidedrawer/angular');
-var sidedrawer_1 = require('nativescript-telerik-ui-pro/sidedrawer');
+var angular_1 = require('nativescript-telerik-ui/sidedrawer/angular');
+var sidedrawer_1 = require('nativescript-telerik-ui/sidedrawer');
 var SideDrawerPageComponent = (function () {
     function SideDrawerPageComponent(routerExtensions, activatedRoute, page, ngZone) {
         this.routerExtensions = routerExtensions;
@@ -17,6 +17,7 @@ var SideDrawerPageComponent = (function () {
          * On tap of any side-drawer item, hiding content if this flag is true.
          */
         this.isContentVisible = true;
+        this.isTopVisible = true;
         /**
          * Navigation Menu Items
          */
@@ -25,7 +26,7 @@ var SideDrawerPageComponent = (function () {
             { name: 'Manage Leads', commands: ['/about'] },
             { name: 'Manage Cases', commands: ['/contact'] },
             { name: 'Incomplete Cases', commands: ['/contact'] },
-            { name: 'My Document', commands: ['/contact'] },
+            { name: 'My Document', commands: ['/document'] },
             { name: 'Logout', commands: ['/logout'] },
             { name: 'Dashboard', commands: ['/home'] },
             { name: 'Manage Leads', commands: ['/about'] },
@@ -110,7 +111,7 @@ var SideDrawerPageComponent = (function () {
     };
     __decorate([
         core_1.ViewChild(angular_1.RadSideDrawerComponent), 
-        __metadata('design:type', (typeof (_a = typeof angular_1.RadSideDrawerComponent !== 'undefined' && angular_1.RadSideDrawerComponent) === 'function' && _a) || Object)
+        __metadata('design:type', angular_1.RadSideDrawerComponent)
     ], SideDrawerPageComponent.prototype, "drawerComponent", void 0);
     SideDrawerPageComponent = __decorate([
         core_1.Component({
@@ -118,10 +119,9 @@ var SideDrawerPageComponent = (function () {
             templateUrl: 'modules/shared/side-drawer-page/side-drawer-page.component.html',
             styleUrls: ['modules/shared/side-drawer-page/side-drawer-page.component.css']
         }), 
-        __metadata('design:paramtypes', [(typeof (_b = typeof router_2.RouterExtensions !== 'undefined' && router_2.RouterExtensions) === 'function' && _b) || Object, (typeof (_c = typeof router_1.ActivatedRoute !== 'undefined' && router_1.ActivatedRoute) === 'function' && _c) || Object, (typeof (_d = typeof page_1.Page !== 'undefined' && page_1.Page) === 'function' && _d) || Object, (typeof (_e = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _e) || Object])
+        __metadata('design:paramtypes', [router_2.RouterExtensions, router_1.ActivatedRoute, page_1.Page, core_1.NgZone])
     ], SideDrawerPageComponent);
     return SideDrawerPageComponent;
-    var _a, _b, _c, _d, _e;
 }());
 exports.SideDrawerPageComponent = SideDrawerPageComponent;
 //# sourceMappingURL=side-drawer-page.component.js.map

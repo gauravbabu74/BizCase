@@ -10,10 +10,10 @@ import { isAndroid, isIOS } from 'platform';
 import { ActionItem } from 'ui/action-bar';
 import {
   RadSideDrawerComponent, SideDrawerType
-} from 'nativescript-telerik-ui-pro/sidedrawer/angular';
+} from 'nativescript-telerik-ui/sidedrawer/angular';
 import {
   PushTransition, SlideInOnTopTransition
-} from 'nativescript-telerik-ui-pro/sidedrawer';
+} from 'nativescript-telerik-ui/sidedrawer';
 
 @Component({
   selector: 'side-drawer-page',
@@ -28,6 +28,8 @@ export class SideDrawerPageComponent implements AfterViewInit, OnDestroy {
    */
   isContentVisible: boolean = true;
 
+  isTopVisible: boolean = true;
+
   /**
    * For android using SlideOnTop transition and for iOS, push transition.
    */
@@ -41,7 +43,7 @@ export class SideDrawerPageComponent implements AfterViewInit, OnDestroy {
     { name: 'Manage Leads', commands: ['/about'] },
     { name: 'Manage Cases', commands: ['/contact'] },
     { name: 'Incomplete Cases', commands: ['/contact'] },
-    { name: 'My Document', commands: ['/contact'] },
+    { name: 'My Document', commands: ['/document'] },
     { name: 'Logout', commands: ['/logout'] },
     { name: 'Dashboard', commands: ['/home'] },
     { name: 'Manage Leads', commands: ['/about'] },

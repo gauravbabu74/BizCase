@@ -39,10 +39,9 @@ var BorderlessBtnDirective = (function () {
         core_1.Directive({
             selector: '.borderless-btn'
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [core_1.ElementRef])
     ], BorderlessBtnDirective);
     return BorderlessBtnDirective;
-    var _a;
 }());
 exports.BorderlessBtnDirective = BorderlessBtnDirective;
 //# sourceMappingURL=borderless-btn.directive.js.map

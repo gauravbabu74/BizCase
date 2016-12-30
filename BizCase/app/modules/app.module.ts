@@ -13,7 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-import { RsharedModule } from './rshared';
+import { DocumentComponent } from './document/document.component';
+import { SharedModule } from './shared';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { RsharedModule } from './rshared';
     NativeScriptModule,
     NativeScriptFormsModule,
     AppRoutingModule,
-    RsharedModule
+    SharedModule
   ],
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { RsharedModule } from './rshared';
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    LogoutComponent
+    LogoutComponent,
+    DocumentComponent
   ],
   bootstrap: [AppComponent]
 })

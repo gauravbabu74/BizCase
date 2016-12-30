@@ -1,0 +1,13 @@
+<ActionBar title="Document">
+  <ActionItem  android.systemIcon="ic_menu_cc" ios.position="right"></ActionItem>
+</ActionBar>
+<side-drawer-page>
+  <GridLayout rows="auto, *">
+  <ListView [items]="listArr" row="1" class="small-spacing">
+    <template let-item="item">
+      <Label [text]="item" class="medium-spacing"></Label>
+    </template>
+  </ListView>
+
+</GridLayout>
+</side-drawer-page>
