@@ -16,6 +16,7 @@ import { ContactComponent } from './contact/contact.component';
 import { SharedModule } from './shared';
 import { RsharedModule } from './rshared';
 
+
 @NgModule({
   imports: [
     NativeScriptModule,
