@@ -14,13 +14,15 @@ import { LogoutComponent } from './logout/logout.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { SharedModule } from './shared';
+import { RsharedModule } from './rshared';
 
 @NgModule({
   imports: [
     NativeScriptModule,
     NativeScriptFormsModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    RsharedModule
   ],
   declarations: [
     AppComponent,

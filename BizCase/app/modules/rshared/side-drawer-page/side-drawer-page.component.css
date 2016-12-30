@@ -1,0 +1,29 @@
+.sidedrawer-header {
+  background-color: #a6ce39;
+}
+
+.sidedrawer-header .sidedrawer-header-image {
+  margin-bottom: 10
+}
+
+.sidedrawer-header .sidedrawer-header-brand {
+  font-size: 18;
+  color: #fff;
+}
+.sidedrawer-content .sidedrawer-list-item {
+  outline: 1px solid #333332;
+  outline-width: thin;
+  border: 0;
+}
+.sidedrawer-left {
+  background-color: #333332;
+}
+.sidedrawer-content .sidedrawer-list-item-text {
+  color: #fff;
+}
+
+.sidedrawer-list-item-text.borderless-btn {
+  text-transform: capitalize;
+  padding-right: 20%;
+  width: 100%;
+}

@@ -103,7 +103,8 @@ if (application.android) {
         alert("Event: " + args.eventName + ", Activity: " + args.activity);
         var currentPage = frame.topmost();
         //alert("Result :" + JSON.stringify(frame.topmost().currentPage));
-        alert(currentPage);
+        console.dump(frame.Frame);
+        console.dump(frame.stack());
         args.cancel = true;
     });
 }

@@ -1,0 +1,42 @@
+<RadSideDrawer [transition]="SlideInOnTopTransition">
+  <StackLayout tkDrawerContent class="sidedrawer-left">
+    <StackLayout class="sidedrawer-header" style="height:70;">
+    <GridLayout>
+                <Button class="sidedrawer-list-item-text borderless-btn" col="0" style="text-align:left;padding-left:60;vertical-align:center;" text="Home"
+                    (tap)="navigateToDashboard()">
+          </Button>
+                <Image src="res://icon" horizontalAlignment="right" width="30" height="30" style="vertical-align:center;margin-right:10"
+                    col="1" class="sidedrawer-header-image"></Image>
+            </GridLayout>
+    </StackLayout>
+    
+    <ScrollView>
+      <StackLayout class="sidedrawer-content">
+        <GridLayout
+            class="sidedrawer-list-item"
+            *ngFor="let nav of navMenu">
+          <Button
+              class="sidedrawer-list-item-text borderless-btn"
+              [text]="nav.name"
+              (tap)="navigateTo(nav.commands)" style="text-align: left;padding-left:60">
+          </Button>
+        </GridLayout>
+      </StackLayout>
+    </ScrollView>
+  </StackLayout>
+  <StackLayout tkMainContent>
+    <StackLayout [visibility]="isContentVisible ? 'visible' : 'collapsed'">
+      <ng-content ></ng-content>
+    </StackLayout>
+    <GridLayout
+        class="loader-container"
+        [visibility]="!isContentVisible ? 'visible' : 'collapsed'">
+      <ActivityIndicator
+          width="30"
+          height="30"
+          [busy]="!isContentVisible"
+          class="activity-indicator">
+      </ActivityIndicator>
+    </GridLayout>
+  </StackLayout>
+</RadSideDrawer>
