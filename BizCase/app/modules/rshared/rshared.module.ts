@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { NativeScriptModule } from 'nativescript-angular/platform';
 import { SIDEDRAWER_DIRECTIVES } from 'nativescript-telerik-ui-pro/sidedrawer/angular';
 
-import { SideDrawerPageComponent } from './side-drawer-page';
+import { RSideDrawerPageComponent } from './side-rdrawer-page';
 import { BorderlessBtnDirective } from './borderless-btn.directive';
 
 @NgModule({
@@ -12,11 +12,11 @@ import { BorderlessBtnDirective } from './borderless-btn.directive';
   ],
   declarations: [
     SIDEDRAWER_DIRECTIVES,
-    SideDrawerPageComponent,
+    RSideDrawerPageComponent,
     BorderlessBtnDirective
   ],
   exports: [
-    SideDrawerPageComponent,
+    RSideDrawerPageComponent,
     BorderlessBtnDirective
   ]
 })

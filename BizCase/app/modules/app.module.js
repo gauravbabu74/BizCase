@@ -10,7 +10,6 @@ var home_component_1 = require('./home/home.component');
 var logout_component_1 = require('./logout/logout.component');
 var about_component_1 = require('./about/about.component');
 var contact_component_1 = require('./contact/contact.component');
-var shared_1 = require('./shared');
 var rshared_1 = require('./rshared');
 var AppModule = (function () {
     function AppModule() {
@@ -21,7 +20,6 @@ var AppModule = (function () {
                 platform_1.NativeScriptModule,
                 forms_1.NativeScriptFormsModule,
                 app_routing_module_1.AppRoutingModule,
-                shared_1.SharedModule,
                 rshared_1.RsharedModule
             ],
             declarations: [

@@ -13,7 +13,6 @@ import { HomeComponent } from './home/home.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-import { SharedModule } from './shared';
 import { RsharedModule } from './rshared';
 
 
@@ -22,7 +21,6 @@ import { RsharedModule } from './rshared';
     NativeScriptModule,
     NativeScriptFormsModule,
     AppRoutingModule,
-    SharedModule,
     RsharedModule
   ],
   declarations: [

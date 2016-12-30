@@ -16,11 +16,11 @@ import {
 } from 'nativescript-telerik-ui-pro/sidedrawer';
 
 @Component({
-  selector: 'side-drawer-page',
-  templateUrl: 'modules/shared/side-drawer-page/side-drawer-page.component.html',
-  styleUrls: ['modules/shared/side-drawer-page/side-drawer-page.component.css']
+  selector: 'side-rdrawer-page',
+  templateUrl: 'modules/rshared/side-rdrawer-page/side-rdrawer-page.component.html',
+  styleUrls: ['modules/rshared/side-rdrawer-page/side-rdrawer-page.component.css']
 })
-export class SideDrawerPageComponent implements AfterViewInit, OnDestroy {
+export class RSideDrawerPageComponent implements AfterViewInit, OnDestroy {
   @ViewChild(RadSideDrawerComponent) drawerComponent: RadSideDrawerComponent;
 
   /**
@@ -53,8 +53,7 @@ export class SideDrawerPageComponent implements AfterViewInit, OnDestroy {
     { name: 'Manage Leads', commands: ['/about'] },
     { name: 'Manage Cases', commands: ['/contact'] },
     { name: 'Incomplete Cases', commands: ['/contact'] },
-    { name: 'My Document', commands: ['/contact'] },
-    { name: 'Logout', commands: ['/logout'] }
+    { name: 'My Document', commands: ['/contact'] }
   ];
 
   private drawer: SideDrawerType;
@@ -130,8 +129,13 @@ export class SideDrawerPageComponent implements AfterViewInit, OnDestroy {
   private getNavigationButton() {
     let navActionItem = new ActionItem();
     navActionItem.icon = 'res://ic_menu_black';
+    
     if (navActionItem.ios) {
       navActionItem.ios.position = 'right';
+    }
+    else
+    {
+        //navActionItem.android.position = 'right';
     }
     navActionItem.on('tap', this.toggleDrawer.bind(this));
     return navActionItem;

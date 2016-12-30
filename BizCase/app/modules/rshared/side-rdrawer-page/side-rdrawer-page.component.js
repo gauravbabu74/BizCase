@@ -7,8 +7,8 @@ var platform_1 = require('platform');
 var action_bar_1 = require('ui/action-bar');
 var angular_1 = require('nativescript-telerik-ui-pro/sidedrawer/angular');
 var sidedrawer_1 = require('nativescript-telerik-ui-pro/sidedrawer');
-var SideDrawerPageComponent = (function () {
-    function SideDrawerPageComponent(routerExtensions, activatedRoute, page, ngZone) {
+var RSideDrawerPageComponent = (function () {
+    function RSideDrawerPageComponent(routerExtensions, activatedRoute, page, ngZone) {
         this.routerExtensions = routerExtensions;
         this.activatedRoute = activatedRoute;
         this.page = page;
@@ -37,25 +37,24 @@ var SideDrawerPageComponent = (function () {
             { name: 'Manage Leads', commands: ['/about'] },
             { name: 'Manage Cases', commands: ['/contact'] },
             { name: 'Incomplete Cases', commands: ['/contact'] },
-            { name: 'My Document', commands: ['/contact'] },
-            { name: 'Logout', commands: ['/logout'] }
+            { name: 'My Document', commands: ['/contact'] }
         ];
         this.setActionBarIcon(this.page);
         this.setDrawerTransition();
     }
-    SideDrawerPageComponent.prototype.ngAfterViewInit = function () {
+    RSideDrawerPageComponent.prototype.ngAfterViewInit = function () {
         this.drawer = this.drawerComponent.sideDrawer;
     };
-    SideDrawerPageComponent.prototype.ngOnDestroy = function () {
+    RSideDrawerPageComponent.prototype.ngOnDestroy = function () {
         this.drawer.off('drawerClosed');
     };
-    SideDrawerPageComponent.prototype.toggleSideDrawer = function () {
+    RSideDrawerPageComponent.prototype.toggleSideDrawer = function () {
         this.drawer.toggleDrawerState();
     };
     /**
      * Navigates to next page after drawer is closed.
      */
-    SideDrawerPageComponent.prototype.navigateTo = function (routeCommands) {
+    RSideDrawerPageComponent.prototype.navigateTo = function (routeCommands) {
         var _this = this;
         this.drawer.closeDrawer();
         var currentUrl = this.routerExtensions.router.routerState.snapshot.url;
@@ -74,7 +73,7 @@ var SideDrawerPageComponent = (function () {
             });
         }
     };
-    SideDrawerPageComponent.prototype.setDrawerTransition = function () {
+    RSideDrawerPageComponent.prototype.setDrawerTransition = function () {
         if (platform_1.isAndroid) {
             this.drawerTransition = new sidedrawer_1.SlideInOnTopTransition();
         }
@@ -82,7 +81,7 @@ var SideDrawerPageComponent = (function () {
             this.drawerTransition = new sidedrawer_1.PushTransition();
         }
     };
-    SideDrawerPageComponent.prototype.setActionBarIcon = function (page) {
+    RSideDrawerPageComponent.prototype.setActionBarIcon = function (page) {
         if (platform_1.isAndroid) {
             page.actionBar.navigationButton = this.getNavigationButton();
         }
@@ -90,19 +89,21 @@ var SideDrawerPageComponent = (function () {
             page.actionBar.actionItems.addItem(this.getNavigationButton());
         }
     };
-    SideDrawerPageComponent.prototype.getNavigationButton = function () {
+    RSideDrawerPageComponent.prototype.getNavigationButton = function () {
         var navActionItem = new action_bar_1.ActionItem();
         navActionItem.icon = 'res://ic_menu_black';
         if (navActionItem.ios) {
             navActionItem.ios.position = 'right';
         }
+        else {
+        }
         navActionItem.on('tap', this.toggleDrawer.bind(this));
         return navActionItem;
     };
-    SideDrawerPageComponent.prototype.toggleDrawer = function () {
+    RSideDrawerPageComponent.prototype.toggleDrawer = function () {
         this.drawer.toggleDrawerState();
     };
-    SideDrawerPageComponent.prototype.navigateToDashboard = function () {
+    RSideDrawerPageComponent.prototype.navigateToDashboard = function () {
         this.routerExtensions.navigate(["home"], {
             clearHistory: true,
             animated: false
@@ -111,16 +112,16 @@ var SideDrawerPageComponent = (function () {
     __decorate([
         core_1.ViewChild(angular_1.RadSideDrawerComponent), 
         __metadata('design:type', angular_1.RadSideDrawerComponent)
-    ], SideDrawerPageComponent.prototype, "drawerComponent", void 0);
-    SideDrawerPageComponent = __decorate([
+    ], RSideDrawerPageComponent.prototype, "drawerComponent", void 0);
+    RSideDrawerPageComponent = __decorate([
         core_1.Component({
-            selector: 'side-drawer-page',
-            templateUrl: 'modules/shared/side-drawer-page/side-drawer-page.component.html',
-            styleUrls: ['modules/shared/side-drawer-page/side-drawer-page.component.css']
+            selector: 'side-rdrawer-page',
+            templateUrl: 'modules/rshared/side-rdrawer-page/side-rdrawer-page.component.html',
+            styleUrls: ['modules/rshared/side-rdrawer-page/side-rdrawer-page.component.css']
         }), 
         __metadata('design:paramtypes', [router_2.RouterExtensions, router_1.ActivatedRoute, page_1.Page, core_1.NgZone])
-    ], SideDrawerPageComponent);
-    return SideDrawerPageComponent;
+    ], RSideDrawerPageComponent);
+    return RSideDrawerPageComponent;
 }());
-exports.SideDrawerPageComponent = SideDrawerPageComponent;
-//# sourceMappingURL=side-drawer-page.component.js.map
+exports.RSideDrawerPageComponent = RSideDrawerPageComponent;
+//# sourceMappingURL=side-rdrawer-page.component.js.map
