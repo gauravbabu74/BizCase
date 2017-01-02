@@ -82,7 +82,6 @@ export class SideDrawerPageComponent implements AfterViewInit, OnDestroy {
   toggleSideDrawer() {
     this.drawer.toggleDrawerState();
   }
-
   /**
    * Navigates to next page after drawer is closed.
    */

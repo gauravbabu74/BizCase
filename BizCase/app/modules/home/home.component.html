@@ -1,12 +1,28 @@
 <ActionBar title="Dashboard">
-  <ActionItem  android.systemIcon="ic_menu_cc" ios.position="right" tap="profileAction"></ActionItem>
+    <ActionItem android.systemIcon="ic_menu_cc" ios.position="right" (tap)="profileAction()"></ActionItem>
 </ActionBar>
 <side-drawer-page>
-  <GridLayout class="home-page p-30">
-      <Label
-          class="h1 page-text"
-          [text]="text"
-          textWrap="true">
-      </Label>
-  </GridLayout>
+    <StackLayout orientation="vertical" horizontalAlignment="center" verticalAlignment="top" backgroundColor="#fcfbf2">
+        <StackLayout>
+            <Label class="h1 bold-head" text="Hi, Manager" horizontalAlignment="center" style="margin-top:20;margin-bottom:20;"></Label>
+            <GridLayout height="1" style="background-color:#e8e8db;margin-bottom:10;"></GridLayout>
+            <GridLayout columns="*,*" rows="*,*" width="auto" height="100">
+                <Label class="bold-font" text="Funded Cases" col="0" row="0" horizontalAlignment="center" verticalAlignment="center"></Label>
+                <Label class="colorHead" text="6" col="1" row="0" color="#a6ce39" horizontalAlignment="center" verticalAlignment="center"></Label>
+                <Label class="bold-font" text="Funded Amount" col="0" row="1" horizontalAlignment="center" verticalAlignment="center"></Label>
+                <Label class="colorHead" text="$210,000.00" col="1" row="1" color="#a6ce39" horizontalAlignment="center"
+                    verticalAlignment="center"></Label> </GridLayout>
+            <GridLayout height="1" style="background-color:#e8e8db;margin-bottom:10;"></GridLayout>
+            <GridLayout columns="*,*" rows="30,30,30,30" width="auto" height="120">
+                <Label class="bold-font" text="Itria"  row="0" col="0"  backgroundColor="#ece7c8" ></Label>
+                <Label class="colorHead" text="6"  row="0" col="1" color="#a6ce39" horizontalAlignment="center"></Label>
+                <Label class="bold-font" text="Non-Itria"  row="1" col="0"  backgroundColor="#ece7c8"></Label>
+                <Label class="colorHead" text="0"  row="1" col="1" color="#a6ce39" horizontalAlignment="center"></Label>
+                <Label class="bold-font" text="New" row="2" col="0"  backgroundColor="#ece7c8"></Label>
+                <Label class="colorHead" text="4" row="2" col="1" color="#a6ce39" horizontalAlignment="center"></Label>
+                <Label class="bold-font" text="Renewal" row="3" col="0"  backgroundColor="#ece7c8"></Label>
+                <Label class="colorHead" text="2" row="3" col="1" color="#a6ce39" horizontalAlignment="center" ></Label> 
+</GridLayout>
+        </StackLayout>
+    </StackLayout>
 </side-drawer-page>

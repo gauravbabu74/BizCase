@@ -1,57 +1,77 @@
 @import 'nativescript-theme-core/css/core.light.css';
 @import url("~/platform.css");
-
 .page-text {
-   vertical-align: center;
-   text-align: center;
+    vertical-align: center;
+    text-align: center;
 }
-/* global styles */ 
-.registerstack{
-  margin-left: 15;
-  margin-right: 15;
-  padding-bottom: 15;
-  margin-top: 10%;
-  background-color: white;
+
+
+/* global styles */
+
+.registerstack {
+    margin-left: 15;
+    margin-right: 15;
+    padding-bottom: 15;
+    margin-top: 10%;
+    background-color: white;
 }
+
 Image {
-  margin-top: 5;
-  margin-bottom: 20;
+    margin-top: 5;
+    margin-bottom: 20;
 }
+
 Button {
-  margin-bottom: 10;
+    margin-bottom: 10;
 }
-Label {
-  margin-left: 5;
-  margin-right: 5;
-  margin-bottom: 10;
+
+DropDown {
+    margin-left: 16;
+    margin-right: 16;
+    font-size: 18;
 }
- DropDown {
-  margin-left: 16;
-  margin-right: 16;  
-  font-size: 18;
-}
+
 .submit-button {
-  background-color: #64980D;
-  color: white;
-  margin-top: 20;
+    background-color: #64980D;
+    color: white;
+    margin-top: 20;
 }
-.btn{
+
+.btn {
     background: none;
 }
 
-#outLine{
-  margin-left: 20;
-  margin-right: 20;
-  margin-bottom: 10;
+#outLine {
+    margin-left: 20;
+    margin-right: 20;
+    margin-bottom: 10;
 }
-.forgot-password-label{
-    color:#64980D;
-     font-size: 16;
+
+.forgot-password-label {
+    color: #64980D;
+    font-size: 16;
 }
-.bold-font{
-    color:#000000;
-     font-size: 16;
+
+.bold-font {
+    color: #000000;
+    font-size: 16;
 }
-TextField{
-      margin-bottom: 10;
+
+.bold-head {
+    color: #000000;
+    font-size: 20;
+}
+
+.colorHead {
+    color: #a6ce39;
+    font-size: 18;
+    font-weight: bold;
+}
+
+TextField {
+    margin-bottom: 10;
+}
+
+ActionBar {
+    background-color: #f9f6e2;
 }

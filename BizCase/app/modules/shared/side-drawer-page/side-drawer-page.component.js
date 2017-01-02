@@ -43,7 +43,6 @@ var SideDrawerPageComponent = (function () {
         ];
         this.setActionBarIcon(this.page);
         this.setDrawerTransition();
-        alert("constructorS");
     }
     SideDrawerPageComponent.prototype.ngAfterViewInit = function () {
         this.drawer = this.drawerComponent.sideDrawer;
