@@ -5,8 +5,8 @@ var router_2 = require('nativescript-angular/router');
 var page_1 = require('ui/page');
 var platform_1 = require('platform');
 var action_bar_1 = require('ui/action-bar');
-var angular_1 = require('nativescript-telerik-ui-pro/sidedrawer/angular');
-var sidedrawer_1 = require('nativescript-telerik-ui-pro/sidedrawer');
+var angular_1 = require('nativescript-telerik-ui/sidedrawer/angular');
+var sidedrawer_1 = require('nativescript-telerik-ui/sidedrawer');
 var RSideDrawerPageComponent = (function () {
     function RSideDrawerPageComponent(routerExtensions, activatedRoute, page, ngZone) {
         this.routerExtensions = routerExtensions;
@@ -17,30 +17,17 @@ var RSideDrawerPageComponent = (function () {
          * On tap of any side-drawer item, hiding content if this flag is true.
          */
         this.isContentVisible = true;
+        this.isTopVisible = true;
         /**
          * Navigation Menu Items
          */
         this.navMenu = [
-            { name: 'Dashboard', commands: ['/home'] },
-            { name: 'Manage Leads', commands: ['/about'] },
-            { name: 'Manage Cases', commands: ['/contact'] },
-            { name: 'Incomplete Cases', commands: ['/contact'] },
             { name: 'My Document', commands: ['/contact'] },
-            { name: 'Logout', commands: ['/logout'] },
-            { name: 'Dashboard', commands: ['/home'] },
-            { name: 'Manage Leads', commands: ['/about'] },
-            { name: 'Manage Cases', commands: ['/contact'] },
-            { name: 'Incomplete Cases', commands: ['/contact'] },
-            { name: 'My Document', commands: ['/contact'] },
-            { name: 'Logout', commands: ['/logout'] },
-            { name: 'Dashboard', commands: ['/home'] },
-            { name: 'Manage Leads', commands: ['/about'] },
-            { name: 'Manage Cases', commands: ['/contact'] },
-            { name: 'Incomplete Cases', commands: ['/contact'] },
-            { name: 'My Document', commands: ['/contact'] }
+            { name: 'Logout', commands: ['/logout'] }
         ];
         this.setActionBarIcon(this.page);
         this.setDrawerTransition();
+        alert("constructorRS");
     }
     RSideDrawerPageComponent.prototype.ngAfterViewInit = function () {
         this.drawer = this.drawerComponent.sideDrawer;
@@ -92,8 +79,9 @@ var RSideDrawerPageComponent = (function () {
     RSideDrawerPageComponent.prototype.getNavigationButton = function () {
         var navActionItem = new action_bar_1.ActionItem();
         navActionItem.icon = 'res://ic_menu_black';
+        navActionItem.android.position = 'right';
         if (navActionItem.ios) {
-            navActionItem.ios.position = 'right';
+            navActionItem.ios.position = 'left';
         }
         navActionItem.on('tap', this.toggleDrawer.bind(this));
         return navActionItem;
@@ -109,18 +97,17 @@ var RSideDrawerPageComponent = (function () {
     };
     __decorate([
         core_1.ViewChild(angular_1.RadSideDrawerComponent), 
-        __metadata('design:type', (typeof (_a = typeof angular_1.RadSideDrawerComponent !== 'undefined' && angular_1.RadSideDrawerComponent) === 'function' && _a) || Object)
+        __metadata('design:type', angular_1.RadSideDrawerComponent)
     ], RSideDrawerPageComponent.prototype, "drawerComponent", void 0);
     RSideDrawerPageComponent = __decorate([
         core_1.Component({
-            selector: 'side-rdrawer-page',
+            selector: 'side-drawer-page',
             templateUrl: 'modules/rshared/side-rdrawer-page/side-rdrawer-page.component.html',
             styleUrls: ['modules/rshared/side-rdrawer-page/side-rdrawer-page.component.css']
         }), 
         __metadata('design:paramtypes', [router_2.RouterExtensions, router_1.ActivatedRoute, page_1.Page, core_1.NgZone])
     ], RSideDrawerPageComponent);
     return RSideDrawerPageComponent;
-    var _a;
 }());
 exports.RSideDrawerPageComponent = RSideDrawerPageComponent;
 //# sourceMappingURL=side-rdrawer-page.component.js.map

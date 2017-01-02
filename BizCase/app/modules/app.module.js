@@ -11,7 +11,9 @@ var logout_component_1 = require('./logout/logout.component');
 var about_component_1 = require('./about/about.component');
 var contact_component_1 = require('./contact/contact.component');
 var document_component_1 = require('./document/document.component');
-var shared_1 = require('./shared');
+var angular_1 = require('nativescript-telerik-ui/sidedrawer/angular');
+var side_drawer_page_1 = require('./shared/side-drawer-page');
+var borderless_btn_directive_1 = require('./shared/borderless-btn.directive');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -20,8 +22,7 @@ var AppModule = (function () {
             imports: [
                 platform_1.NativeScriptModule,
                 forms_1.NativeScriptFormsModule,
-                app_routing_module_1.AppRoutingModule,
-                shared_1.SharedModule
+                app_routing_module_1.AppRoutingModule
             ],
             declarations: [
                 app_component_1.AppComponent,
@@ -31,7 +32,10 @@ var AppModule = (function () {
                 about_component_1.AboutComponent,
                 contact_component_1.ContactComponent,
                 logout_component_1.LogoutComponent,
-                document_component_1.DocumentComponent
+                document_component_1.DocumentComponent,
+                angular_1.SIDEDRAWER_DIRECTIVES,
+                side_drawer_page_1.SideDrawerPageComponent,
+                borderless_btn_directive_1.BorderlessBtnDirective
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

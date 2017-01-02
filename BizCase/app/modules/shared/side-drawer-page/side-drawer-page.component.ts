@@ -49,13 +49,13 @@ export class SideDrawerPageComponent implements AfterViewInit, OnDestroy {
     { name: 'Manage Leads', commands: ['/about'] },
     { name: 'Manage Cases', commands: ['/contact'] },
     { name: 'Incomplete Cases', commands: ['/contact'] },
-    { name: 'My Document', commands: ['/contact'] },
+    { name: 'My Document', commands: ['/document'] },
     { name: 'Logout', commands: ['/logout'] },
     { name: 'Dashboard', commands: ['/home'] },
     { name: 'Manage Leads', commands: ['/about'] },
     { name: 'Manage Cases', commands: ['/contact'] },
     { name: 'Incomplete Cases', commands: ['/contact'] },
-    { name: 'My Document', commands: ['/contact'] },
+    { name: 'My Document', commands: ['/document'] },
     { name: 'Logout', commands: ['/logout'] }
   ];
 
@@ -69,6 +69,7 @@ export class SideDrawerPageComponent implements AfterViewInit, OnDestroy {
   ) {
     this.setActionBarIcon(this.page);
     this.setDrawerTransition();
+     alert("constructorS");
   }
 
   ngAfterViewInit() {
@@ -135,6 +136,7 @@ export class SideDrawerPageComponent implements AfterViewInit, OnDestroy {
     if (navActionItem.ios) {
       navActionItem.ios.position = 'left';
     }
+
     navActionItem.on('tap', this.toggleDrawer.bind(this));
     return navActionItem;
   }

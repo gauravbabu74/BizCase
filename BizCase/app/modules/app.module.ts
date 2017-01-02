@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptModule } from "nativescript-angular/platform";
@@ -14,15 +13,17 @@ import { LogoutComponent } from './logout/logout.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { DocumentComponent } from './document/document.component';
-import { SharedModule } from './shared';
+
+import { SIDEDRAWER_DIRECTIVES } from 'nativescript-telerik-ui/sidedrawer/angular';
+import { SideDrawerPageComponent } from './shared/side-drawer-page';
+import { BorderlessBtnDirective } from './shared/borderless-btn.directive';
 
 
 @NgModule({
   imports: [
     NativeScriptModule,
     NativeScriptFormsModule,
-    AppRoutingModule,
-    SharedModule
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,
@@ -32,7 +33,10 @@ import { SharedModule } from './shared';
     AboutComponent,
     ContactComponent,
     LogoutComponent,
-    DocumentComponent
+    DocumentComponent,
+    SIDEDRAWER_DIRECTIVES,
+    SideDrawerPageComponent,
+    BorderlessBtnDirective
   ],
   bootstrap: [AppComponent]
 })

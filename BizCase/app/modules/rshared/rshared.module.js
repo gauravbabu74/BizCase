@@ -1,7 +1,7 @@
 "use strict";
 var core_1 = require('@angular/core');
 var platform_1 = require('nativescript-angular/platform');
-var angular_1 = require('nativescript-telerik-ui-pro/sidedrawer/angular');
+var angular_1 = require('nativescript-telerik-ui/sidedrawer/angular');
 var side_rdrawer_page_1 = require('./side-rdrawer-page');
 var borderless_btn_directive_1 = require('./borderless-btn.directive');
 var RsharedModule = (function () {

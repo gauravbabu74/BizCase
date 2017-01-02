@@ -32,17 +32,18 @@ var SideDrawerPageComponent = (function () {
             { name: 'Manage Leads', commands: ['/about'] },
             { name: 'Manage Cases', commands: ['/contact'] },
             { name: 'Incomplete Cases', commands: ['/contact'] },
-            { name: 'My Document', commands: ['/contact'] },
+            { name: 'My Document', commands: ['/document'] },
             { name: 'Logout', commands: ['/logout'] },
             { name: 'Dashboard', commands: ['/home'] },
             { name: 'Manage Leads', commands: ['/about'] },
             { name: 'Manage Cases', commands: ['/contact'] },
             { name: 'Incomplete Cases', commands: ['/contact'] },
-            { name: 'My Document', commands: ['/contact'] },
+            { name: 'My Document', commands: ['/document'] },
             { name: 'Logout', commands: ['/logout'] }
         ];
         this.setActionBarIcon(this.page);
         this.setDrawerTransition();
+        alert("constructorS");
     }
     SideDrawerPageComponent.prototype.ngAfterViewInit = function () {
         this.drawer = this.drawerComponent.sideDrawer;

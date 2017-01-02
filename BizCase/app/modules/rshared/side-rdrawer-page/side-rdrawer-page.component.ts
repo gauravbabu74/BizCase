@@ -10,13 +10,13 @@ import { isAndroid, isIOS } from 'platform';
 import { ActionItem } from 'ui/action-bar';
 import {
   RadSideDrawerComponent, SideDrawerType
-} from 'nativescript-telerik-ui-pro/sidedrawer/angular';
+} from 'nativescript-telerik-ui/sidedrawer/angular';
 import {
   PushTransition, SlideInOnTopTransition
-} from 'nativescript-telerik-ui-pro/sidedrawer';
+} from 'nativescript-telerik-ui/sidedrawer';
 
 @Component({
-  selector: 'side-rdrawer-page',
+  selector: 'side-drawer-page',
   templateUrl: 'modules/rshared/side-rdrawer-page/side-rdrawer-page.component.html',
   styleUrls: ['modules/rshared/side-rdrawer-page/side-rdrawer-page.component.css']
 })
@@ -28,6 +28,8 @@ export class RSideDrawerPageComponent implements AfterViewInit, OnDestroy {
    */
   isContentVisible: boolean = true;
 
+  isTopVisible: boolean = true;
+
   /**
    * For android using SlideOnTop transition and for iOS, push transition.
    */
@@ -37,23 +39,8 @@ export class RSideDrawerPageComponent implements AfterViewInit, OnDestroy {
    * Navigation Menu Items
    */
   navMenu: any[] = [
-    { name: 'Dashboard', commands: ['/home'] },
-    { name: 'Manage Leads', commands: ['/about'] },
-    { name: 'Manage Cases', commands: ['/contact'] },
-    { name: 'Incomplete Cases', commands: ['/contact'] },
     { name: 'My Document', commands: ['/contact'] },
-    { name: 'Logout', commands: ['/logout'] },
-    { name: 'Dashboard', commands: ['/home'] },
-    { name: 'Manage Leads', commands: ['/about'] },
-    { name: 'Manage Cases', commands: ['/contact'] },
-    { name: 'Incomplete Cases', commands: ['/contact'] },
-    { name: 'My Document', commands: ['/contact'] },
-    { name: 'Logout', commands: ['/logout'] },
-    { name: 'Dashboard', commands: ['/home'] },
-    { name: 'Manage Leads', commands: ['/about'] },
-    { name: 'Manage Cases', commands: ['/contact'] },
-    { name: 'Incomplete Cases', commands: ['/contact'] },
-    { name: 'My Document', commands: ['/contact'] }
+    { name: 'Logout', commands: ['/logout'] }
   ];
 
   private drawer: SideDrawerType;
@@ -66,6 +53,7 @@ export class RSideDrawerPageComponent implements AfterViewInit, OnDestroy {
   ) {
     this.setActionBarIcon(this.page);
     this.setDrawerTransition();
+     alert("constructorRS");
   }
 
   ngAfterViewInit() {
@@ -129,10 +117,11 @@ export class RSideDrawerPageComponent implements AfterViewInit, OnDestroy {
   private getNavigationButton() {
     let navActionItem = new ActionItem();
     navActionItem.icon = 'res://ic_menu_black';
-    
+    navActionItem.android.position = 'right';
     if (navActionItem.ios) {
-      navActionItem.ios.position = 'right';
+      navActionItem.ios.position = 'left';
     }
+    
     navActionItem.on('tap', this.toggleDrawer.bind(this));
     return navActionItem;
   }
