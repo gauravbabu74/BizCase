@@ -69,7 +69,6 @@ export class SideDrawerPageComponent implements AfterViewInit, OnDestroy {
   ) {
     this.setActionBarIcon(this.page);
     this.setDrawerTransition();
-     alert("constructorS");
   }
 
   ngAfterViewInit() {
