@@ -34,8 +34,10 @@ var HomeComponent = (function () {
     };
     HomeComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'home',
-            templateUrl: 'modules/home/home.component.html',
+            templateUrl: 'home.component.html',
+            styleUrls: ["home.component.css"],
             changeDetection: core_1.ChangeDetectionStrategy.OnPush
         }), 
         __metadata('design:paramtypes', [page_1.Page, router_1.RouterExtensions])

@@ -2,27 +2,62 @@
     <ActionItem android.systemIcon="ic_menu_cc" ios.position="right" (tap)="profileAction()"></ActionItem>
 </ActionBar>
 <side-drawer-page>
-    <StackLayout orientation="vertical" horizontalAlignment="center" verticalAlignment="top" backgroundColor="#fcfbf2">
-        <StackLayout>
-            <Label class="h1 bold-head" text="Hi, Manager" horizontalAlignment="center" style="margin-top:20;margin-bottom:20;"></Label>
-            <GridLayout height="1" style="background-color:#e8e8db;margin-bottom:10;"></GridLayout>
-            <GridLayout columns="*,*" rows="*,*" width="auto" height="100">
-                <Label class="bold-font" text="Funded Cases" col="0" row="0" horizontalAlignment="center" verticalAlignment="center"></Label>
-                <Label class="colorHead" text="6" col="1" row="0" color="#a6ce39" horizontalAlignment="center" verticalAlignment="center"></Label>
-                <Label class="bold-font" text="Funded Amount" col="0" row="1" horizontalAlignment="center" verticalAlignment="center"></Label>
-                <Label class="colorHead" text="$210,000.00" col="1" row="1" color="#a6ce39" horizontalAlignment="center"
-                    verticalAlignment="center"></Label> </GridLayout>
-            <GridLayout height="1" style="background-color:#e8e8db;margin-bottom:10;"></GridLayout>
-            <GridLayout columns="*,*" rows="30,30,30,30" width="auto" height="120">
-                <Label class="bold-font" text="Itria"  row="0" col="0"  backgroundColor="#ece7c8" ></Label>
-                <Label class="colorHead" text="6"  row="0" col="1" color="#a6ce39" horizontalAlignment="center"></Label>
-                <Label class="bold-font" text="Non-Itria"  row="1" col="0"  backgroundColor="#ece7c8"></Label>
-                <Label class="colorHead" text="0"  row="1" col="1" color="#a6ce39" horizontalAlignment="center"></Label>
-                <Label class="bold-font" text="New" row="2" col="0"  backgroundColor="#ece7c8"></Label>
-                <Label class="colorHead" text="4" row="2" col="1" color="#a6ce39" horizontalAlignment="center"></Label>
-                <Label class="bold-font" text="Renewal" row="3" col="0"  backgroundColor="#ece7c8"></Label>
-                <Label class="colorHead" text="2" row="3" col="1" color="#a6ce39" horizontalAlignment="center" ></Label> 
-</GridLayout>
+    <ScrollView orientation="vertical" horizontalAlignment="center" verticalAlignment="top">
+        <StackLayout orientation="vertical"  backgroundColor="#fcfbf2">
+            <StackLayout>
+                <Label class="h1 bold-head" text="Hi, Manager" horizontalAlignment="center" style="margin-top:20;margin-bottom:20;"></Label>
+                <GridLayout height="1" style="background-color:#e8e8db;margin-bottom:10;"></GridLayout>
+                <GridLayout columns="*,*" rows="*,*" width="auto" height="100">
+                    <Label class="bold-font" text="Funded Cases" col="0" row="0" horizontalAlignment="center" verticalAlignment="center"></Label>
+                    <Label class="colorHead" text="6" col="1" row="0" color="#a6ce39" horizontalAlignment="center" verticalAlignment="center"></Label>
+                    <Label class="bold-font" text="Funded Amount" col="0" row="1" horizontalAlignment="center" verticalAlignment="center"></Label>
+                    <Label class="colorHead" text="$210,000.00" col="1" row="1" color="#a6ce39" horizontalAlignment="center"
+                        verticalAlignment="center"></Label> </GridLayout>
+                <GridLayout height="1" style="background-color:#e8e8db;margin-bottom:10;"></GridLayout>
+                <Label class="h3" text="Cases:"></Label>
+                <GridLayout columns="*,*" rows="30,30,30,30" width="auto" height="120">
+                    <Label class="bold-font tabContent" text="Itria" row="0" col="0" backgroundColor="#ece7c8"></Label>
+                    <Label class="tabContent" text="6" row="0" col="1"></Label>
+                    <Label class="bold-font tabContent" text="Non-Itria" row="1" col="0" backgroundColor="#ece7c8"></Label>
+                    <Label class="tabContent" text="0" row="1" col="1"></Label>
+                    <Label class="bold-font tabContent" text="New" row="2" col="0" backgroundColor="#ece7c8"></Label>
+                    <Label class="tabContent" text="4" row="2" col="1"></Label>
+                    <Label class="bold-font tabContent" text="Renewal" row="3" col="0" backgroundColor="#ece7c8"></Label>
+                    <Label class="tabContent" text="2" row="3" col="1"></Label> </GridLayout>
+                <GridLayout height="1" style="background-color:#e8e8db;margin-bottom:10;"></GridLayout>
+                <Label class="h3 " text="Amount: "></Label>
+                <GridLayout columns="*,* " rows="30,30,30,30 " width="auto " height="120 ">
+                    <Label class="bold-font tabContent" text="Itria" row="0 " col="0" backgroundColor="#ece7c8"></Label>
+                    <Label class="tabContent" text="210,000.00" row="0 " col="1 "></Label>
+                    <Label class="bold-font tabContent" text="Non-Itria" row="1 " col="0" backgroundColor="#ece7c8"></Label>
+                    <Label class="tabContent" text="0.00" row="1 " col="1"></Label>
+                    <Label class="bold-font tabContent" text="New " row="2" col="0" backgroundColor="#ece7c8"></Label>
+                    <Label class="tabContent" text="155,000.00" row="2" col="1 "></Label>
+                    <Label class="bold-font tabContent " text="Renewal" row="3" col="0" backgroundColor="#ece7c8"></Label>
+                    <Label class="tabContent" text="55,000.00" row="3" col="1"></Label> </GridLayout>
+                <GridLayout height="1" style="background-color:#e8e8db;margin-bottom:10;"></GridLayout>
+                <StackLayout>
+                    <Label class="h2" text="Avg. BizAnalyzer Score" horizontalAlignment="center"></Label>
+                    <GridLayout columns="*,*" rows="*" width="200 " height="200 ">
+                        <GridLayout columns="*" rows="*,*"  row="0" col="0">
+                            <Label  class="alignCenter roundCircle bold-font" text="51" row="0" col="0"></Label>
+                            <Label class="alignCenter bold-font" text="Completed" row="1" col="0" ></Label> </GridLayout>
+                        <GridLayout columns="*" rows="*,*"  row="0" col="1">
+                            <Label  class="alignCenter roundCircle bold-font" text="52" row="0" col="0"></Label>
+                            <Label class="alignCenter bold-font" text="Funded" row="1" col="0"></Label> </GridLayout>
+                    </GridLayout>
+                </StackLayout>
+                <GridLayout height="1" style="background-color:#e8e8db;margin-bottom:10;"></GridLayout>
+                <GridLayout columns="*" rows="*" width="100" height="120 ">
+                    <Label class="roundCircle" text="Itria" row="0 " col="0" backgroundColor="red"></Label>
+                    <Label class="roundCircle" text="210,000.00" row="0 " col="0" backgroundColor="green"></Label>
+                    <Label class="roundCircle" text="Non-Itria" row="0" col="1" backgroundColor="#ece7c8"></Label>
+                    <Label class="roundCircle" text="0.00" row="0" col="2" backgroundColor="green"></Label>
+                    <Label class="roundCircle" text="New " row="0" col="3" backgroundColor="#ece7c8"></Label>
+                    <Label class="roundCircle" text="155,000.00" row="0" col="4" backgroundColor="green"></Label>
+                    <Label class="roundCircle" text="Renewal" row="0" col="5" backgroundColor="#ece7c8"></Label>
+                    <Label class="roundCircle" text="55,000.00" row="0" col="6" backgroundColor="green"></Label> </GridLayout>
+            </StackLayout>
         </StackLayout>
-    </StackLayout>
+    </ScrollView>
 </side-drawer-page>

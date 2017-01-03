@@ -1,0 +1,15 @@
+/* module specific styles */
+
+.tabContent {
+    border-bottom-width:1;
+    border-bottom-color:#eeeeee;
+    padding-left: 50;
+    text-align:left;
+}
+.roundCircle{
+    border-width:3;
+    border-radius:100;
+    border-color:#9a9568;
+    margin:5;
+    padding:25;
+}
