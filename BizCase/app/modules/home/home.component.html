@@ -3,7 +3,7 @@
 </ActionBar>
 <side-drawer-page>
     <ScrollView orientation="vertical" horizontalAlignment="center" verticalAlignment="top">
-        <StackLayout orientation="vertical"  backgroundColor="#fcfbf2">
+        <StackLayout orientation="vertical" backgroundColor="#fcfbf2">
             <StackLayout>
                 <Label class="h1 bold-head" text="Hi, Manager" horizontalAlignment="center" style="margin-top:20;margin-bottom:20;"></Label>
                 <GridLayout height="1" style="background-color:#e8e8db;margin-bottom:10;"></GridLayout>
@@ -39,24 +39,71 @@
                 <StackLayout>
                     <Label class="h2" text="Avg. BizAnalyzer Score" horizontalAlignment="center"></Label>
                     <GridLayout columns="*,*" rows="*" width="200 " height="200 ">
-                        <GridLayout columns="*" rows="*,*"  row="0" col="0">
-                            <Label  class="alignCenter roundCircle bold-font" text="51" row="0" col="0"></Label>
-                            <Label class="alignCenter bold-font" text="Completed" row="1" col="0" ></Label> </GridLayout>
-                        <GridLayout columns="*" rows="*,*"  row="0" col="1">
-                            <Label  class="alignCenter roundCircle bold-font" text="52" row="0" col="0"></Label>
+                        <GridLayout columns="*" rows="*,*" row="0" col="0">
+                            <Label class="alignCenter roundCircle bold-font" text="51" row="0" col="0"></Label>
+                            <Label class="alignCenter bold-font" text="Completed" row="1" col="0"></Label> </GridLayout>
+                        <GridLayout columns="*" rows="*,*" row="0" col="1">
+                            <Label class="alignCenter roundCircle bold-font" text="52" row="0" col="0"></Label>
                             <Label class="alignCenter bold-font" text="Funded" row="1" col="0"></Label> </GridLayout>
                     </GridLayout>
                 </StackLayout>
                 <GridLayout height="1" style="background-color:#e8e8db;margin-bottom:10;"></GridLayout>
-                <GridLayout columns="*" rows="*" width="100" height="120 ">
-                    <Label class="roundCircle" text="Itria" row="0 " col="0" backgroundColor="red"></Label>
-                    <Label class="roundCircle" text="210,000.00" row="0 " col="0" backgroundColor="green"></Label>
-                    <Label class="roundCircle" text="Non-Itria" row="0" col="1" backgroundColor="#ece7c8"></Label>
-                    <Label class="roundCircle" text="0.00" row="0" col="2" backgroundColor="green"></Label>
-                    <Label class="roundCircle" text="New " row="0" col="3" backgroundColor="#ece7c8"></Label>
-                    <Label class="roundCircle" text="155,000.00" row="0" col="4" backgroundColor="green"></Label>
-                    <Label class="roundCircle" text="Renewal" row="0" col="5" backgroundColor="#ece7c8"></Label>
-                    <Label class="roundCircle" text="55,000.00" row="0" col="6" backgroundColor="green"></Label> </GridLayout>
+                <Label class="h2" textWrap="true" text="Lead pipeline - Status wise report in last 30 days"
+                    horizontalAlignment="center" style="margin-left:20;margin-right:20;"></Label>
+                <WrapLayout orientation="horizontal" horizontalAlignment="center">
+                    <GridLayout columns="*" rows="*,*" width="200" class="makemargin">
+                        <Image src="~/images/box.png" stretch="aspectFit" horizontalAlignment="center" class="roundSCircle" width="70"
+                            height="70"></Image>
+                        <Label class="alignCenter bold-font" text="Fresh" row="1" col="0">
+                            </Label> </GridLayout>
+                    <GridLayout columns="*" rows="*,*" width="200" class="makemargin">
+                        <Image src="~/images/box.png" stretch="aspectFit" horizontalAlignment="center" class="roundSCircle" width="70"
+                            height="70"></Image>
+                        <Label class="alignCenter bold-font" text="Contact Attempted" row="1" col="0"></Label> </GridLayout>
+                    <GridLayout columns="*" rows="*,*" width="200" class="makemargin">
+                        <Image src="~/images/box.png" stretch="aspectFit" horizontalAlignment="center" class="roundSCircle" width="70"
+                            height="70"></Image>
+                        <Label class="alignCenter bold-font" text="Qualified Docs Requested" row="1" col="0"></Label> </GridLayout>
+                    <GridLayout columns="*" rows="*,*" width="200" class="makemargin">
+                        <Image src="~/images/box.png" stretch="aspectFit" horizontalAlignment="center" class="roundSCircle" width="70"
+                            height="70"></Image>
+                        <Label class="alignCenter bold-font" text=" Qualified not Interested" row="1" col="0"></Label> </GridLayout>
+                    <GridLayout columns="*" rows="*,*" width="200" class="makemargin">
+                        <Image src="~/images/box.png" stretch="aspectFit" horizontalAlignment="center" class="roundSCircle" width="70"
+                            height="70"></Image>
+                        <Label class="alignCenter bold-font" text="Does not Qualify" row="1" col="0"></Label> </GridLayout>
+                </WrapLayout>
+                <GridLayout height="1" style="background-color:#e8e8db;margin-bottom:10;"></GridLayout>
+                <Label class="h2" textWrap="true" text="Case pipeline - Status wise report in last 30 days"
+                    horizontalAlignment="center" style="margin-left:20;margin-right:20;"></Label>
+                <WrapLayout orientation="horizontal" horizontalAlignment="center">
+                    <GridLayout columns="*" rows="*,*" width="200" class="makemargin">
+                        <Image src="~/images/box.png" stretch="aspectFit" horizontalAlignment="center" class="roundSCircle" width="70"
+                            height="70"></Image>
+                        <Label class="alignCenter bold-font" text="Qualified, Docs Requested" row="1" col="0">
+                            </Label> </GridLayout>
+                    <GridLayout columns="*" rows="*,*" width="200" class="makemargin">
+                        <Image src="~/images/box.png" stretch="aspectFit" horizontalAlignment="center" class="roundSCircle" width="70"
+                            height="70"></Image>
+                        <Label class="alignCenter bold-font" text="Submitted to Itria" row="1" col="0"></Label> </GridLayout>
+                    <GridLayout columns="*" rows="*,*" width="200" class="makemargin">
+                        <Image src="~/images/box.png" stretch="aspectFit" horizontalAlignment="center" class="roundSCircle" width="70"
+                            height="70"></Image>
+                        <Label class="alignCenter bold-font" text="Approved by Underwriter" row="1" col="0"></Label> </GridLayout>
+                    <GridLayout columns="*" rows="*,*" width="200" class="makemargin">
+                        <Image src="~/images/box.png" stretch="aspectFit" horizontalAlignment="center" class="roundSCircle" width="70"
+                            height="70"></Image>
+                        <Label class="alignCenter bold-font" text="Offer Accepted" row="1" col="0"></Label> </GridLayout>
+                    <GridLayout columns="*" rows="*,*" width="200" class="makemargin">
+                        <Image src="~/images/box.png" stretch="aspectFit" horizontalAlignment="center" class="roundSCircle" width="70"
+                            height="70"></Image>
+                        <Label class="alignCenter bold-font" text="Ready for Funding" row="1" col="0"></Label> </GridLayout>
+                    <GridLayout columns="*" rows="*,*" width="200" class="makemargin">
+                        <Image src="~/images/box.png" stretch="aspectFit" horizontalAlignment="center" class="roundSCircle" width="70"
+                            height="70"></Image>
+                        <Label class="alignCenter bold-font" text="Funding call Requested" row="1" col="0"></Label> </GridLayout>
+                </WrapLayout>
+                <GridLayout height="1" style="background-color:#e8e8db;margin-bottom:10;"></GridLayout>
             </StackLayout>
         </StackLayout>
     </ScrollView>

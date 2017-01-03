@@ -13,3 +13,13 @@
     margin:5;
     padding:25;
 }
+.roundSCircle{
+    border-width:2;
+    border-radius:100;
+    border-color:#A9DC1D;
+    margin:20;
+    padding:20;
+}
+.makemargin{
+    margin:20;
+}
