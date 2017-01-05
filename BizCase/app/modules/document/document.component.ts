@@ -4,8 +4,9 @@ import { RouterExtensions } from 'nativescript-angular/router';
 import { Page } from "ui/page";
 
 @Component({
+  moduleId: module.id,
   selector: 'Mydocument',
-  templateUrl: 'modules/document/document.component.html',
+  templateUrl: 'document.component.html',
   styleUrls: ["document.component.css"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

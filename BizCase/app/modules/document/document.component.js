@@ -20,8 +20,9 @@ var DocumentComponent = (function () {
     };
     DocumentComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'Mydocument',
-            templateUrl: 'modules/document/document.component.html',
+            templateUrl: 'document.component.html',
             styleUrls: ["document.component.css"],
             changeDetection: core_1.ChangeDetectionStrategy.OnPush
         }), 
