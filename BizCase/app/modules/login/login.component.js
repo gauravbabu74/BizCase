@@ -48,7 +48,7 @@ var LoginComponent = (function () {
             this.routerExtensions.navigate(["home"]);
         }
         if (platform_1.isAndroid) {
-            this.imageType = "aspectFit";
+            this.imageType = "none";
         }
         if (platform_1.isIOS) {
             this.imageType = "aspectFit";

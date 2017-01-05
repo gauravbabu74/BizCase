@@ -54,9 +54,10 @@ var RegisterComponent = (function () {
             templateUrl: "register.component.html",
             styleUrls: ["register.component.css"]
         }), 
-        __metadata('design:paramtypes', [page_1.Page])
+        __metadata('design:paramtypes', [(typeof (_a = typeof page_1.Page !== 'undefined' && page_1.Page) === 'function' && _a) || Object])
     ], RegisterComponent);
     return RegisterComponent;
+    var _a;
 }());
 exports.RegisterComponent = RegisterComponent;
 //# sourceMappingURL=register.component.js.map

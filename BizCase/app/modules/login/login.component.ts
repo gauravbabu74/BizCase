@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         }
         if (isAndroid)
         {
-            this.imageType ="aspectFit";
+            this.imageType ="none";
         }
         if (isIOS)
         {
