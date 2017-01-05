@@ -40,10 +40,9 @@ var HomeComponent = (function () {
             styleUrls: ["home.component.css"],
             changeDetection: core_1.ChangeDetectionStrategy.OnPush
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof page_1.Page !== 'undefined' && page_1.Page) === 'function' && _a) || Object, (typeof (_b = typeof router_1.RouterExtensions !== 'undefined' && router_1.RouterExtensions) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [page_1.Page, router_1.RouterExtensions])
     ], HomeComponent);
     return HomeComponent;
-    var _a, _b;
 }());
 exports.HomeComponent = HomeComponent;
 //# sourceMappingURL=home.component.js.map
