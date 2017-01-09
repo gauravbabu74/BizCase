@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     public imageType: string = "none";
     public connectionType: string;
     
-
     @ViewChild("password") password: ElementRef;
     @ViewChild("uname") uname: ElementRef;
 
@@ -157,7 +156,10 @@ export class LoginComponent implements OnInit, OnDestroy {
             //alert("Result :" + result);
             let resData = this.xmlToJson(result);
             if (resData['results']['faultcode'] === 1 || resData['results']['faultcode'] === '1') {
+                alert("Result :" + JSON.stringify(resData['results']));
                 appSettings.setBoolean("isLogin", true);
+                appSettings.setString("userID", resData['results']['userData']['userID']);
+                alert(appSettings.getString("userID"));
                 //this.router.navigate(["home"]);
                 Toast.makeText("success.","long").show();
                 this.routerExtensions.navigate(["/home"]);

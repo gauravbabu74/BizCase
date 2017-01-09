@@ -24,6 +24,32 @@ export class DocumentComponent implements OnInit, OnDestroy {
     ngOnInit() {
         
          alert("ngOnInit");
+          this.isAuthenticating = true;
+        request({
+            url: "https://sandbox.biz2services.com/mobapp/api/user/",
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            content: JSON.stringify({ apiaction: 'getlistfilesfolders', userID: this.username, parentID: 0, parentName: ''})
+        }).then(response => {
+            
+            let result = response.content;
+            this.isAuthenticating = false;
+            //alert("Result :" + result);
+            let resData = this.xmlToJson(result);
+            if (resData['results']['faultcode'] === 1 || resData['results']['faultcode'] === '1') {
+                appSettings.setBoolean("isLogin", true);
+                //this.router.navigate(["home"]);
+                Toast.makeText("success.","long").show();
+                this.routerExtensions.navigate(["/home"]);
+            }
+            else {
+                alert("Result :" + JSON.stringify(resData));
+            }
+
+        }).catch(err => {
+            alert("Error occurred :" + JSON.stringify(err.stack));
+        });
+
     
     }
     ngOnDestroy() {
