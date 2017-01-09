@@ -144,11 +144,8 @@ var LoginComponent = (function () {
             //alert("Result :" + result);
             var resData = _this.xmlToJson(result);
             if (resData['results']['faultcode'] === 1 || resData['results']['faultcode'] === '1') {
-                alert("Result :" + JSON.stringify(resData['results']));
                 appSettings.setBoolean("isLogin", true);
-                appSettings.setString("userID", resData['results']['userData']['userID']);
-                alert(appSettings.getString("userID"));
-                //this.router.navigate(["home"]);
+                appSettings.setString("userID", resData['results']['UserData']['userID']);
                 Toast.makeText("success.", "long").show();
                 _this.routerExtensions.navigate(["/home"]);
             }
@@ -286,11 +283,11 @@ var LoginComponent = (function () {
     };
     __decorate([
         core_1.ViewChild("password"), 
-        __metadata('design:type', core_1.ElementRef)
+        __metadata('design:type', (typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object)
     ], LoginComponent.prototype, "password", void 0);
     __decorate([
         core_1.ViewChild("uname"), 
-        __metadata('design:type', core_1.ElementRef)
+        __metadata('design:type', (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object)
     ], LoginComponent.prototype, "uname", void 0);
     LoginComponent = __decorate([
         core_1.Component({
@@ -299,9 +296,10 @@ var LoginComponent = (function () {
             templateUrl: "login.component.html",
             styleUrls: ["login.component.css"]
         }), 
-        __metadata('design:paramtypes', [router_1.Router, page_1.Page, router_2.RouterExtensions, core_1.NgZone])
+        __metadata('design:paramtypes', [(typeof (_c = typeof router_1.Router !== 'undefined' && router_1.Router) === 'function' && _c) || Object, (typeof (_d = typeof page_1.Page !== 'undefined' && page_1.Page) === 'function' && _d) || Object, (typeof (_e = typeof router_2.RouterExtensions !== 'undefined' && router_2.RouterExtensions) === 'function' && _e) || Object, (typeof (_f = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _f) || Object])
     ], LoginComponent);
     return LoginComponent;
+    var _a, _b, _c, _d, _e, _f;
 }());
 exports.LoginComponent = LoginComponent;
 //# sourceMappingURL=login.component.js.map
