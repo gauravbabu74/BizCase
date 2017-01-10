@@ -7,17 +7,18 @@ var connectivity_1 = require("connectivity");
 var http_1 = require("http");
 var page_1 = require("ui/page");
 var dialogs = require("ui/dialogs");
-var XmlObjects = require("nativescript-xmlobjects");
+var xmltojson_service_1 = require("../xmltojson.service");
 var appSettings = require("application-settings");
 var Toast = require('nativescript-toast');
 var connectivity = require("connectivity");
 require("rxjs/Rx");
 var LoginComponent = (function () {
-    function LoginComponent(router, page, routerExtensions, zone) {
+    function LoginComponent(router, page, routerExtensions, zone, xmltojsonservice) {
         this.router = router;
         this.page = page;
         this.routerExtensions = routerExtensions;
         this.zone = zone;
+        this.xmltojsonservice = xmltojsonservice;
         this.username = "gaurav.babu@sakshay.in";
         this.isLogin = false;
         this.isAuthenticating = false;
@@ -134,7 +135,7 @@ var LoginComponent = (function () {
         // >> post-request-http-module
         this.isAuthenticating = true;
         http_1.request({
-            url: "https://sandbox.biz2services.com/mobapp3.0/api/user/",
+            url: "https://sandbox.biz2services.com/mobapp/api/user/",
             method: "POST",
             headers: { "Content-Type": "application/json" },
             content: JSON.stringify({ apiaction: 'userlogin', userID: this.username, password: this.pass, devicetoken: this.deviceToken, devicetype: this.deviceType })
@@ -142,7 +143,7 @@ var LoginComponent = (function () {
             var result = response.content;
             _this.isAuthenticating = false;
             //alert("Result :" + result);
-            var resData = _this.xmlToJson(result);
+            var resData = _this.xmltojsonservice.xmlToJson(result);
             if (resData['results']['faultcode'] === 1 || resData['results']['faultcode'] === '1') {
                 appSettings.setBoolean("isLogin", true);
                 appSettings.setString("userID", resData['results']['UserData']['userID']);
@@ -213,7 +214,7 @@ var LoginComponent = (function () {
                 else {
                     _this.isAuthenticating = true;
                     http_1.request({
-                        url: "https://sandbox.biz2services.com/mobapp3.0/api/user/",
+                        url: "https://sandbox.biz2services.com/mobapp/api/user/",
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         content: JSON.stringify({ apiaction: 'forgotpassword', useremail: forgotmail })
@@ -245,49 +246,17 @@ var LoginComponent = (function () {
     LoginComponent.prototype.testcall = function () {
         alert("debug123");
     };
-    LoginComponent.prototype.xmlToJson = function (xml) {
-        var result = {};
-        var doc = XmlObjects.parse(xml);
-        var rootElement = doc.root;
-        var allNodes = rootElement.nodes();
-        var allNodesData = rootElement.elements();
-        if (allNodesData.length > 0) {
-            for (var i = 0; i < allNodes.length; i++) {
-                var node = allNodes[i];
-                if (node instanceof XmlObjects.XElement) {
-                    if (typeof (result[node.name]) == "undefined") {
-                        result[node.name] = this.xmlToJson(node);
-                    }
-                    else {
-                        if (typeof (result[node.name].push) == "undefined") {
-                            var old = result[node.name];
-                            result[node.name] = [];
-                            result[node.name].push(old);
-                        }
-                        result[node.name].push(this.xmlToJson(node));
-                    }
-                }
-            }
-        }
-        else {
-            var node = allNodes[0];
-            if (node instanceof XmlObjects.XText) {
-                result = node.value;
-            }
-        }
-        return result;
-    };
     LoginComponent.prototype.validateEmail = function (email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
     };
     __decorate([
         core_1.ViewChild("password"), 
-        __metadata('design:type', (typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object)
+        __metadata('design:type', core_1.ElementRef)
     ], LoginComponent.prototype, "password", void 0);
     __decorate([
         core_1.ViewChild("uname"), 
-        __metadata('design:type', (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object)
+        __metadata('design:type', core_1.ElementRef)
     ], LoginComponent.prototype, "uname", void 0);
     LoginComponent = __decorate([
         core_1.Component({
@@ -296,10 +265,9 @@ var LoginComponent = (function () {
             templateUrl: "login.component.html",
             styleUrls: ["login.component.css"]
         }), 
-        __metadata('design:paramtypes', [(typeof (_c = typeof router_1.Router !== 'undefined' && router_1.Router) === 'function' && _c) || Object, (typeof (_d = typeof page_1.Page !== 'undefined' && page_1.Page) === 'function' && _d) || Object, (typeof (_e = typeof router_2.RouterExtensions !== 'undefined' && router_2.RouterExtensions) === 'function' && _e) || Object, (typeof (_f = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _f) || Object])
+        __metadata('design:paramtypes', [router_1.Router, page_1.Page, router_2.RouterExtensions, core_1.NgZone, xmltojson_service_1.XmltojsonService])
     ], LoginComponent);
     return LoginComponent;
-    var _a, _b, _c, _d, _e, _f;
 }());
 exports.LoginComponent = LoginComponent;
 //# sourceMappingURL=login.component.js.map

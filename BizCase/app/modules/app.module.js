@@ -14,6 +14,7 @@ var document_component_1 = require('./document/document.component');
 var angular_1 = require('nativescript-telerik-ui/sidedrawer/angular');
 var side_drawer_page_1 = require('./shared/side-drawer-page');
 var borderless_btn_directive_1 = require('./shared/borderless-btn.directive');
+var xmltojson_service_1 = require("./xmltojson.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -36,6 +37,9 @@ var AppModule = (function () {
                 angular_1.SIDEDRAWER_DIRECTIVES,
                 side_drawer_page_1.SideDrawerPageComponent,
                 borderless_btn_directive_1.BorderlessBtnDirective
+            ],
+            providers: [
+                xmltojson_service_1.XmltojsonService
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

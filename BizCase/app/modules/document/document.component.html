@@ -1,13 +1,16 @@
 <ActionBar title="Document">
-  <ActionItem  android.systemIcon="ic_menu_cc" ios.position="right"></ActionItem>
+    <ActionItem android.systemIcon="ic_menu_cc" ios.position="right"></ActionItem>
 </ActionBar>
 <side-drawer-page>
-  <GridLayout rows="auto, *">
-  <ListView [items]="listArr" row="1" class="small-spacing">
-    <template let-item="item">
-      <Label [text]="item" class="medium-spacing"></Label>
-    </template>
-  </ListView>
-
-</GridLayout>
+    <GridLayout rows="auto, *">
+        <ListView [items]="listArr" row="1" class="small-spacing" (itemTap)="onItemTap($event)">
+        <template let-item="item">
+        <WrapLayout orientation="horizontal" horizontalAlignment="left">
+            <Image src="~/images/folder.png" stretch="aspectFit" horizontalAlignment="center"  width="70"
+                            height="50" class="folder cicon"></Image>
+            <Label [text]="item.name" class="medium-spacing" horizontalAlignment="left" verticalAlignment="center"></Label>
+            <Label  horizontalAlignment="right" text="&#xf105;"></Label>
+        </WrapLayout>
+    </template> </ListView>
+    </GridLayout>
 </side-drawer-page>

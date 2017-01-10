@@ -18,6 +18,8 @@ import { SIDEDRAWER_DIRECTIVES } from 'nativescript-telerik-ui/sidedrawer/angula
 import { SideDrawerPageComponent } from './shared/side-drawer-page';
 import { BorderlessBtnDirective } from './shared/borderless-btn.directive';
 
+import { XmltojsonService } from "./xmltojson.service";
+
 
 @NgModule({
   imports: [
@@ -38,6 +40,9 @@ import { BorderlessBtnDirective } from './shared/borderless-btn.directive';
     SideDrawerPageComponent,
     BorderlessBtnDirective
   ],
+  providers: [
+      XmltojsonService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -8,6 +8,7 @@ import { Page } from "ui/page";
 import { View } from "ui/core/view";
 import * as dialogs from "ui/dialogs";
 import * as XmlObjects from "nativescript-xmlobjects";
+import { XmltojsonService } from "../xmltojson.service";
 import * as appSettings from "application-settings";
 import { TextField } from "ui/text-field";
 import * as Toast from 'nativescript-toast';
@@ -31,15 +32,16 @@ export class LoginComponent implements OnInit, OnDestroy {
     public deviceType: string = "simulator";
     public imageType: string = "none";
     public connectionType: string;
-    
+
     @ViewChild("password") password: ElementRef;
     @ViewChild("uname") uname: ElementRef;
 
     public constructor(private router: Router,
-        private page: Page ,
+        private page: Page,
         private routerExtensions: RouterExtensions,
-        private zone: NgZone) {
-             let connectionType = connectivity.getConnectionType();
+        private zone: NgZone,
+        private xmltojsonservice: XmltojsonService) {
+        let connectionType = connectivity.getConnectionType();
         switch (connectionType) {
             case connectivity.connectionType.none:
                 this.connectionType = "None";
@@ -62,13 +64,11 @@ export class LoginComponent implements OnInit, OnDestroy {
         if (this.isLogin === true) {
             this.routerExtensions.navigate(["home"]);
         }
-        if (isAndroid)
-        {
-            this.imageType ="none";
+        if (isAndroid) {
+            this.imageType = "none";
         }
-        if (isIOS)
-        {
-            this.imageType ="aspectFit";
+        if (isIOS) {
+            this.imageType = "aspectFit";
         }
         connectivity.startMonitoring((newConnectionType: number) => {
             this.zone.run(() => {
@@ -145,20 +145,20 @@ export class LoginComponent implements OnInit, OnDestroy {
         // >> post-request-http-module
         this.isAuthenticating = true;
         request({
-            url: "https://sandbox.biz2services.com/mobapp3.0/api/user/",
+            url: "https://sandbox.biz2services.com/mobapp/api/user/",
             method: "POST",
             headers: { "Content-Type": "application/json" },
             content: JSON.stringify({ apiaction: 'userlogin', userID: this.username, password: this.pass, devicetoken: this.deviceToken, devicetype: this.deviceType })
         }).then(response => {
-            
+
             let result = response.content;
             this.isAuthenticating = false;
             //alert("Result :" + result);
-            let resData = this.xmlToJson(result);
+            let resData = this.xmltojsonservice.xmlToJson(result);
             if (resData['results']['faultcode'] === 1 || resData['results']['faultcode'] === '1') {
                 appSettings.setBoolean("isLogin", true);
                 appSettings.setString("userID", resData['results']['UserData']['userID']);
-                Toast.makeText("success.","long").show();
+                Toast.makeText("success.", "long").show();
                 this.routerExtensions.navigate(["/home"]);
             }
             else {
@@ -180,7 +180,7 @@ export class LoginComponent implements OnInit, OnDestroy {
             cancelButtonText: "Cancel"
         };
         dialogs.prompt(options).then((result: dialogs.PromptResult) => {
-            if(result.result === true){
+            if (result.result === true) {
                 let forgotmail = result.text;
                 if (forgotmail === "") {
                     let options = {
@@ -190,7 +190,7 @@ export class LoginComponent implements OnInit, OnDestroy {
                         neutralButtonText: "Cancel"
                     };
                     dialogs.confirm(options).then((result: boolean) => {
-                        if (result === true) { 
+                        if (result === true) {
                             this.forgotPass();
                         }
                     });
@@ -206,7 +206,7 @@ export class LoginComponent implements OnInit, OnDestroy {
                     dialogs.confirm(options).then((result: boolean) => {
                         if (result === true) { this.forgotPass(); }
                     });
-                    return;  
+                    return;
                 }
                 if (getConnectionType() === connectionType.none) {
                     let options = {
@@ -222,7 +222,7 @@ export class LoginComponent implements OnInit, OnDestroy {
                 else {
                     this.isAuthenticating = true;
                     request({
-                        url: "https://sandbox.biz2services.com/mobapp3.0/api/user/",
+                        url: "https://sandbox.biz2services.com/mobapp/api/user/",
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         content: JSON.stringify({ apiaction: 'forgotpassword', useremail: forgotmail })
@@ -232,7 +232,7 @@ export class LoginComponent implements OnInit, OnDestroy {
                         //alert("Result :" + result);
                         let resData = this.xmlToJson(result);
                         if (resData['results']['faultcode'] === 1 || resData['results']['faultcode'] === '1') {
-                            Toast.makeText("New password has been created and sent successfully to your email account.","long").show();
+                            Toast.makeText("New password has been created and sent successfully to your email account.", "long").show();
                             //this.router.navigate(["/"],{ clearHistory: true });
                             this.routerExtensions.navigate(["/"], { clearHistory: true });
                         }
@@ -256,40 +256,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         alert("debug123");
     }
 
-    private xmlToJson(xml: string): any {
-        let result: any = {};
-        let doc = XmlObjects.parse(xml);
-        var rootElement = doc.root;
-        var allNodes = rootElement.nodes();
-        var allNodesData = rootElement.elements();
-        if (allNodesData.length > 0) {
-            for (var i = 0; i < allNodes.length; i++) {
-                var node = allNodes[i];
-                if (node instanceof XmlObjects.XElement) {
-                    if (typeof (result[<any>node.name]) == "undefined") {
-                        result[<any>node.name] = this.xmlToJson(<any>node);
-                    } else {
-                        if (typeof (result[<any>node.name].push) == "undefined") {
-                            var old = result[<any>node.name];
-                            result[<any>node.name] = [];
-                            result[<any>node.name].push(old);
-                        }
-                        result[<any>node.name].push(this.xmlToJson(<any>node));
-                    }
-                }
-            }
-        }
-        else {
-            var node = allNodes[0];
-            if (node instanceof XmlObjects.XText) {
-                result = node.value;
-            }
-
-        }
-        return result;
-    }
-    public validateEmail(email)
-    {
+    public validateEmail(email) {
         let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
     }

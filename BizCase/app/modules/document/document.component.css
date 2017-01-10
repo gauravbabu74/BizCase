@@ -13,12 +13,9 @@
     margin:5;
     padding:40;
 }
-.roundSCircle{
-    border-width:2;
-    border-radius:100;
-    border-color:#A9DC1D;
-    margin:20;
-    padding:20;
+.cicon{
+    margin:5;
+    padding:10;
 }
 .makemargin{
     margin:20;
