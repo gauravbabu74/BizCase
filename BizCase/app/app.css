@@ -79,3 +79,7 @@ ActionBar {
 .alignCenter {
     text-align: center;
 }
+ActivityIndicator {
+  horizontal-align: center;
+  vertical-align: center;
+}

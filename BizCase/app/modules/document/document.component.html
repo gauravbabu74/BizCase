@@ -3,14 +3,14 @@
 </ActionBar>
 <side-drawer-page>
     <GridLayout rows="auto, *">
-        <ListView [items]="listArr" row="1" class="small-spacing" (itemTap)="onItemTap($event)">
-        <template let-item="item">
+        <ListView [items]="items | async" row="1" class="small-spacing" (itemTap)="onItemTap($event)" (loaded)="load()"> <template let-item="item">
         <WrapLayout orientation="horizontal" horizontalAlignment="left">
             <Image src="~/images/folder.png" stretch="aspectFit" horizontalAlignment="center"  width="70"
                             height="50" class="folder cicon"></Image>
             <Label [text]="item.name" class="medium-spacing" horizontalAlignment="left" verticalAlignment="center"></Label>
-            <Label  horizontalAlignment="right" text="&#xf105;"></Label>
+            <Label  horizontalAlignment="right" verticalAlignment="center" text="&#xf105;"></Label>
         </WrapLayout>
     </template> </ListView>
+        <ActivityIndicator row="2" width="30" height="30" [busy]="isAuthenticating"></ActivityIndicator>
     </GridLayout>
 </side-drawer-page>
