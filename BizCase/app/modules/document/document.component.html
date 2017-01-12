@@ -2,13 +2,20 @@
     <ActionItem android.systemIcon="ic_menu_cc" ios.position="right"></ActionItem>
 </ActionBar>
 <side-drawer-page>
+ <StackLayout  backgroundColor="#fcfbf2">
+    <WrapLayout orientation="horizontal" (tap)="onTapNewFolder()">
+        <Image class="folder cicon" src="~/images/new-folder.png" stretch="aspectFit" horizontalAlignment="center" width="auto" verticalAlignment="center" height="40"></Image>
+        <Label text="Add Folder" class="medium-spacing" horizontalAlignment="left" verticalAlignment="center" width="70%"></Label> </WrapLayout>
+    <WrapLayout orientation="horizontal" (tap)="onTapNewFile()">
+        <Image class="folder cicon" src="~/images/new-folder.png" stretch="aspectFit" horizontalAlignment="center" width="auto" verticalAlignment="center" height="40"></Image>
+        <Label text="Add File" class="medium-spacing" horizontalAlignment="left" verticalAlignment="center" width="70%"></Label> </WrapLayout>
+</StackLayout>
     <GridLayout rows="auto, *">
         <ListView [items]="items | async" row="1" class="small-spacing" (itemTap)="onItemTap($event)" (loaded)="load()"> <template let-item="item">
-        <WrapLayout orientation="horizontal" horizontalAlignment="left">
-            <Image src="~/images/folder.png" stretch="aspectFit" horizontalAlignment="center"  width="70"
-                            height="50" class="folder cicon"></Image>
-            <Label [text]="item.name" class="medium-spacing" horizontalAlignment="left" verticalAlignment="center"></Label>
-            <Label  horizontalAlignment="right" verticalAlignment="center" text="&#xf105;"></Label>
+        <WrapLayout orientation="horizontal">
+            <Image src="~/images/folder.png" stretch="aspectFit" horizontalAlignment="center" width="auto" height="50" class="folder cicon"></Image>
+            <Label [text]="item.name" class="medium-spacing" horizontalAlignment="left" verticalAlignment="center" width="70%"></Label>
+            <Image src="res://ic_keyboard_arrow_right_black_24dp" stretch="none" horizontalAlignment="right" verticalAlignment="center"  width="10%"></Image>
         </WrapLayout>
     </template> </ListView>
         <ActivityIndicator row="2" width="30" height="30" [busy]="isAuthenticating"></ActivityIndicator>

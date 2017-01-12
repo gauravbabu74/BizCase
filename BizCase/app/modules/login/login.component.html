@@ -9,14 +9,12 @@
         <TextField #password hint="Password" [(ngModel)]="pass" secure="true"></TextField>
         <Button text="Login" class="btn-rounded-lg" (tap)="validateUser()" backgroundColor="#64980D" color="#ffffff"></Button>
         <Label class="forgot-password-label" text="Forgot password?" (tap)="forgotPass()" horizontalAlignment="center"></Label>
-        <DockLayout stretchLastChild="true">
-            <ActivityIndicator dock="bottom" class="activity-indicator" width="30" height="30" #activityIndicator [busy]="isAuthenticating"></ActivityIndicator>
-        </DockLayout>
     </StackLayout>
     <StackLayout orientation="vertical" horizontalAlignment="center" verticalAlignment="bottom">
         <GridLayout row="0" columns="*, auto" style="padding-left:15;padding-right:15;height:50;">
             <Label class="bold-font" text="Privacy Policy" col="0"></Label>
             <Label class="bold-font" text="Terms & Conditions" col="1"></Label> </GridLayout>
     </StackLayout>
+            <ActivityIndicator row="2" width="30" height="30" [busy]="isAuthenticating"></ActivityIndicator>
 </StackLayout>
 </ScrollView>

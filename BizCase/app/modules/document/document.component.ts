@@ -7,6 +7,7 @@ import { request } from "http";
 import * as appSettings from "application-settings";
 import { XmltojsonService } from "../xmltojson.service";
 import { Document, DocumentService } from "./shared";
+import * as dialogs from "ui/dialogs";
 
 @Component({
     moduleId: module.id,
@@ -83,4 +84,31 @@ export class DocumentComponent implements OnInit, OnDestroy {
         console.log(error);
         return Observable.throw(error);
     }
+     
+     private onTapNewFolder()
+     {
+        dialogs.prompt({
+            title: "New Folder",
+            okButtonText: "Create",
+            cancelButtonText: "Cancel",
+            defaultText: "",
+            inputType: dialogs.inputType.text
+        }).then(function (r) {
+            alert("Dialog result: " + r.result + ", text: " + r.text);
+        });
+     }
+
+     private onTapNewFile()
+     {
+         dialogs.action({
+            message: "Add File",
+            cancelButtonText: "Cancel",
+            actions: ["Use Gallery"]
+        }).then(result => {
+            if (result == "Use Gallery") {
+                this.routerExtensions.navigate(["/logout"]);
+            }
+        });
+     }
+     
 }

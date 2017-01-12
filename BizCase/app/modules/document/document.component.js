@@ -8,6 +8,7 @@ var http_1 = require("http");
 var appSettings = require("application-settings");
 var xmltojson_service_1 = require("../xmltojson.service");
 var shared_1 = require("./shared");
+var dialogs = require("ui/dialogs");
 var DocumentComponent = (function () {
     function DocumentComponent(store, router, page, routerExtensions, zone, xmltojsonservice) {
         this.store = store;
@@ -68,6 +69,29 @@ var DocumentComponent = (function () {
     DocumentComponent.prototype.handleErrors = function (error) {
         console.log(error);
         return Rx_1.Observable.throw(error);
+    };
+    DocumentComponent.prototype.onTapNewFolder = function () {
+        dialogs.prompt({
+            title: "New Folder",
+            okButtonText: "Create",
+            cancelButtonText: "Cancel",
+            defaultText: "",
+            inputType: dialogs.inputType.text
+        }).then(function (r) {
+            alert("Dialog result: " + r.result + ", text: " + r.text);
+        });
+    };
+    DocumentComponent.prototype.onTapNewFile = function () {
+        var _this = this;
+        dialogs.action({
+            message: "Add File",
+            cancelButtonText: "Cancel",
+            actions: ["Use Gallery"]
+        }).then(function (result) {
+            if (result == "Use Gallery") {
+                _this.routerExtensions.navigate(["/logout"]);
+            }
+        });
     };
     __decorate([
         core_1.Output(), 
