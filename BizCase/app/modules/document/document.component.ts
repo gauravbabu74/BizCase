@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, NgZone, OnInit, ViewChild, ElementRef, OnDestroy, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ChangeDetectorRef, ChangeDetectionStrategy, NgZone, OnInit, ViewChild, ElementRef, OnDestroy, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from "@angular/router";
 import { RouterExtensions } from 'nativescript-angular/router';
 import { Observable, BehaviorSubject } from "rxjs/Rx";
@@ -8,6 +8,7 @@ import * as appSettings from "application-settings";
 import { XmltojsonService } from "../xmltojson.service";
 import { Document, DocumentService } from "./shared";
 import * as dialogs from "ui/dialogs";
+let imagepicker = require("nativescript-imagepicker");
 
 @Component({
     moduleId: module.id,
@@ -22,8 +23,10 @@ export class DocumentComponent implements OnInit, OnDestroy {
     items: BehaviorSubject<Array<Document>> = new BehaviorSubject([]);
 
     public allItems: Array<Document> = [];
+    itemsArr = [];
 
-    public constructor(private store: DocumentService,
+    public constructor(private _changeDetectionRef: ChangeDetectorRef,
+        private store: DocumentService,
         private router: Router,
         private page: Page,
         private routerExtensions: RouterExtensions,
@@ -106,9 +109,43 @@ export class DocumentComponent implements OnInit, OnDestroy {
             actions: ["Use Gallery"]
         }).then(result => {
             if (result == "Use Gallery") {
-                this.routerExtensions.navigate(["/logout"]);
+                this.onSelectSingleTap();
             }
         });
      }
+     onSelectMultipleTap() {
+        let context = imagepicker.create({
+            mode: "multiple"
+        });
+        this.startSelection(context);
+    }
+
+    onSelectSingleTap() {
+        let context = imagepicker.create({
+            mode: "single"
+        });
+        this.startSelection(context);
+    }
+
+    startSelection(context) {
+        context
+            .authorize()
+            .then(() => {
+                this.itemsArr = [];
+                return context.present();
+            })
+            .then((selection) => {
+                console.log("Selection done:");
+                selection.forEach(function(selected) {
+                    console.log("----------------");
+                    alert("uri: " + selected.uri);
+                    alert("fileUri: " + selected.fileUri);
+                });
+                this.itemsArr = selection;
+                this._changeDetectionRef.detectChanges();
+            }).catch(function (e) {
+                console.log(e);
+            });
+    }
      
 }

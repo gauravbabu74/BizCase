@@ -53,9 +53,10 @@ var DocumentService = (function () {
     };
     DocumentService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [core_1.NgZone, xmltojson_service_1.XmltojsonService])
+        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _a) || Object, xmltojson_service_1.XmltojsonService])
     ], DocumentService);
     return DocumentService;
+    var _a;
 }());
 exports.DocumentService = DocumentService;
 //# sourceMappingURL=document.service.js.map

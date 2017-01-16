@@ -9,8 +9,10 @@ var appSettings = require("application-settings");
 var xmltojson_service_1 = require("../xmltojson.service");
 var shared_1 = require("./shared");
 var dialogs = require("ui/dialogs");
+var imagepicker = require("nativescript-imagepicker");
 var DocumentComponent = (function () {
-    function DocumentComponent(store, router, page, routerExtensions, zone, xmltojsonservice) {
+    function DocumentComponent(_changeDetectionRef, store, router, page, routerExtensions, zone, xmltojsonservice) {
+        this._changeDetectionRef = _changeDetectionRef;
         this.store = store;
         this.router = router;
         this.page = page;
@@ -21,6 +23,7 @@ var DocumentComponent = (function () {
         this.isAuthenticating = false;
         this.items = new Rx_1.BehaviorSubject([]);
         this.allItems = [];
+        this.itemsArr = [];
         this.loaded = new core_1.EventEmitter();
     }
     DocumentComponent.prototype.ngOnInit = function () {
@@ -89,8 +92,41 @@ var DocumentComponent = (function () {
             actions: ["Use Gallery"]
         }).then(function (result) {
             if (result == "Use Gallery") {
-                _this.routerExtensions.navigate(["/logout"]);
+                _this.onSelectSingleTap();
             }
+        });
+    };
+    DocumentComponent.prototype.onSelectMultipleTap = function () {
+        var context = imagepicker.create({
+            mode: "multiple"
+        });
+        this.startSelection(context);
+    };
+    DocumentComponent.prototype.onSelectSingleTap = function () {
+        var context = imagepicker.create({
+            mode: "single"
+        });
+        this.startSelection(context);
+    };
+    DocumentComponent.prototype.startSelection = function (context) {
+        var _this = this;
+        context
+            .authorize()
+            .then(function () {
+            _this.itemsArr = [];
+            return context.present();
+        })
+            .then(function (selection) {
+            console.log("Selection done:");
+            selection.forEach(function (selected) {
+                console.log("----------------");
+                alert("uri: " + selected.uri);
+                alert("fileUri: " + selected.fileUri);
+            });
+            _this.itemsArr = selection;
+            _this._changeDetectionRef.detectChanges();
+        }).catch(function (e) {
+            console.log(e);
         });
     };
     __decorate([
@@ -105,9 +141,10 @@ var DocumentComponent = (function () {
             styleUrls: ["document.component.css"],
             providers: [shared_1.DocumentService]
         }), 
-        __metadata('design:paramtypes', [shared_1.DocumentService, router_1.Router, page_1.Page, router_2.RouterExtensions, core_1.NgZone, xmltojson_service_1.XmltojsonService])
+        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ChangeDetectorRef !== 'undefined' && core_1.ChangeDetectorRef) === 'function' && _a) || Object, shared_1.DocumentService, (typeof (_b = typeof router_1.Router !== 'undefined' && router_1.Router) === 'function' && _b) || Object, (typeof (_c = typeof page_1.Page !== 'undefined' && page_1.Page) === 'function' && _c) || Object, (typeof (_d = typeof router_2.RouterExtensions !== 'undefined' && router_2.RouterExtensions) === 'function' && _d) || Object, (typeof (_e = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _e) || Object, xmltojson_service_1.XmltojsonService])
     ], DocumentComponent);
     return DocumentComponent;
+    var _a, _b, _c, _d, _e;
 }());
 exports.DocumentComponent = DocumentComponent;
 //# sourceMappingURL=document.component.js.map

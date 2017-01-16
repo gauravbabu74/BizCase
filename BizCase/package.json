@@ -18,7 +18,8 @@
         "nativescript-toast": "1.4.3",
         "nativescript-drop-down": "1.5.1",
         "nativescript-theme-core": "1.0.2",
-        "nativescript-telerik-ui": "1.6.0-2016.12.29.1"
+        "nativescript-telerik-ui": "1.6.0-2016.12.29.1",
+        "nativescript-imagepicker": "2.4.0"
     },
     "devDependencies": {
         "babel-traverse": "6.8.0",
